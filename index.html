@@ -3,171 +3,479 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bian Xuan | Medical Director</title>
-<link rel="stylesheet" href="style.css">
+<title>Bian Xuan | Global Medical Director</title>
 <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+       * {
+           margin: 0;
+           padding: 0;
+           box-sizing: border-box;
+           font-family: "Microsoft Yahei", system-ui, sans-serif;
+       }
+       body {
+           background-color: #000000;
+           color: #f5f5f5;
+           line-height: 1.9;
+       }
+       a {
+           text-decoration: none;
+           color: inherit;
+       }
+       .en-text {
+           display: none;
+       }
+       /* 语言切换按钮 */
+       .lang-switch {
+           position: fixed;
+           top: 24px;
+           right: 36px;
+           z-index: 9999;
+       }
+       .lang-btn {
+           background: transparent;
+           border: 1px solid #d4af37;
+           color: #d4af37;
+           padding: 6px 16px;
+           border-radius: 30px;
+           margin: 0 5px;
+           cursor: pointer;
+           font-size: 14px;
+           transition: all 0.3s ease;
+       }
+       .lang-btn.active {
+           background-color: #d4af37;
+           color: #000;
+       }
+       /* 导航栏 */
+       .navbar {
+           width: 100%;
+           padding: 24px 40px;
+           border-bottom: 1px solid #222;
+           display: flex;
+           align-items: center;
+           justify-content: space-between;
+           position: sticky;
+           top: 0;
+           background: #000;
+           z-index: 999;
+       }
+       .brand {
+           font-size: 28px;
+           color: #d4af37;
+           font-weight: bold;
+           letter-spacing: 2px;
+       }
+       .nav-menu a {
+           margin: 0 14px;
+           font-size: 16px;
+           color: #ccc;
+           transition: 0.2s;
+       }
+       .nav-menu a:hover {
+           color: #d4af37;
+       }
+       /* 主视觉区 */
+       .hero {
+           min-height: 80vh;
+           display: flex;
+           flex-direction: column;
+           align-items: center;
+           justify-content: center;
+           text-align: center;
+           padding: 40px 20px;
+       }
+       .sub-title {
+           font-size: 20px;
+           color: #aaa;
+           margin-bottom: 16px;
+       }
+       .main-name {
+           font-size: 48px;
+           color: #d4af37;
+           margin-bottom: 20px;
+           letter-spacing: 4px;
+       }
+       .desc {
+           max-width: 900px;
+           font-size: 18px;
+           color: #bbb;
+           margin-bottom: 30px;
+       }
+       .line {
+           width: 120px;
+           height: 2px;
+           background: #d4af37;
+           margin-bottom: 30px;
+       }
+       .social-group a {
+           font-size: 26px;
+           margin: 0 12px;
+           color: #d4af37;
+       }
+       /* 通用区块 */
+       .container {
+           max-width: 1200px;
+           margin: 0 auto;
+           padding: 60px 30px;
+       }
+       .dark-wrap {
+           background-color: #0a0a0a;
+       }
+       .sec-title {
+           font-size: 34px;
+           color: #d4af37;
+           margin-bottom: 40px;
+           text-align: center;
+       }
+       /* 时间线履历 */
+       .timeline-item {
+           border-left: 2px solid #d4af37;
+           padding-left: 24px;
+           margin-bottom: 36px;
+           position: relative;
+       }
+       .timeline-item::before {
+           content: "";
+           width: 12px;
+           height: 12px;
+           background: #d4af37;
+           border-radius: 50%;
+           position: absolute;
+           left: -7px;
+           top: 4px;
+       }
+       .time {
+           color: #d4af37;
+           font-weight: bold;
+           font-size: 17px;
+           margin-bottom: 8px;
+       }
+       .timeline-item h3 {
+           font-size: 20px;
+           margin-bottom: 10px;
+       }
+       .timeline-item p {
+           color: #ccc;
+           font-size: 17px;
+       }
+       /* 能力卡片网格 */
+       .tech-grid {
+           display: grid;
+           grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+           gap: 26px;
+       }
+       .tech-card {
+           border: 1px solid #222;
+           padding: 26px;
+           border-radius: 8px;
+           transition: 0.3s;
+       }
+       .tech-card:hover {
+           border-color: #d4af37;
+       }
+       .tech-card h4 {
+           color: #d4af37;
+           font-size: 20px;
+           margin-bottom: 12px;
+       }
+       .tech-card p {
+           color: #bbb;
+       }
+       /* 成果列表 */
+       .result-list li {
+           list-style: none;
+           padding: 14px 0;
+           border-bottom: 1px solid #222;
+           font-size: 17px;
+           color: #ddd;
+       }
+       /* 联系方式 */
+       .contact-text p {
+           font-size: 19px;
+           margin: 20px 0;
+           color: #ddd;
+       }
+       .contact-text i {
+           color: #d4af37;
+           margin-right: 12px;
+           width: 24px;
+       }
+       /* 页脚 */
+       .footer {
+           padding: 40px 20px;
+           text-align: center;
+           border-top: 1px solid #222;
+           color: #777;
+           font-size: 16px;
+       }
+       /* 移动端适配 */
+       @media(max-width:768px) {
+           .navbar {
+               flex-direction: column;
+               gap: 20px;
+               text-align: center;
+               padding: 20px 10px;
+           }
+           .nav-menu a {
+               margin: 0 6px;
+               font-size: 14px;
+           }
+           .main-name {
+               font-size: 32px;
+           }
+           .lang-switch {
+               right: 10px;
+               top: 14px;
+           }
+       }
+</style>
 </head>
 <body>
+<!-- 语言切换按钮 -->
+<div class="lang-switch">
+<button class="lang-btn active" onclick="switchLang('zh')">中文</button>
+<button class="lang-btn" onclick="switchLang('en')">EN</button>
+</div>
 <!-- 导航栏 -->
 <nav class="navbar">
-<div class="nav-wrap">
 <div class="brand">BIANXUAN.MED</div>
 <div class="nav-menu">
-<a href="#home">首页</a>
-<a href="#profile">职业履历</a>
-<a href="#expertise">专业能力</a>
-<a href="#achievement">核心工作成果</a>
-<a href="#edu">教育与学术资质</a>
-<a href="#cert">认证与荣誉奖项</a>
-<a href="#contact">商务学术联络</a>
-</div>
+<a href="#home" class="zh-text">首页</a>
+<a href="#home" class="en-text">Home</a>
+<a href="#profile" class="zh-text">职业履历</a>
+<a href="#profile" class="en-text">Career</a>
+<a href="#expertise" class="zh-text">专业能力</a>
+<a href="#expertise" class="en-text">Expertise</a>
+<a href="#achievement" class="zh-text">核心成果</a>
+<a href="#achievement" class="en-text">Achievements</a>
+<a href="#edu" class="zh-text">教育资质</a>
+<a href="#edu" class="en-text">Education</a>
+<a href="#cert" class="zh-text">荣誉认证</a>
+<a href="#cert" class="en-text">Awards</a>
+<a href="#contact" class="zh-text">商务联络</a>
+<a href="#contact" class="en-text">Contact</a>
 </div>
 </nav>
-<!-- 主视觉总裁封面 -->
+<!-- 主视觉封面 -->
 <section id="home" class="hero">
-<div class="hero-inner">
-<p class="sub-title">MEDICAL DIRECTOR | GLOBAL PHARMA & MEDICAL AFFAIRS LEADER</p>
+<p class="sub-title zh-text">全球医疗战略负责人｜跨国药企医学总监</p>
+<p class="sub-title en-text">Global Medical Strategy Leader | Senior Medical Director</p>
 <h1 class="main-name">边璇 BIAN XUAN</h1>
-<p class="desc">十余年跨国药企医疗事务负责人 | GE/Pfizer/MSD 全球肿瘤医学战略专家 | APAC 学术生态搭建者</p>
+<p class="desc zh-text">十余年国际医疗事务管理经验｜肿瘤医学战略｜亚太学术生态搭建｜临床研发与真实世界研究</p>
+<p class="desc en-text">10+ years global medical affairs experience | Oncology strategy | APAC academic ecosystem | Clinical & RWE research</p>
 <div class="line"></div>
 <div class="social-group">
-<a href="https://github.com/TianyuLiu26" target="_blank"><i class="fa-brands fa-github"></i></a>
+<a href="https://github.com/bianxuan1015" target="_blank"><i class="fa-brands fa-github"></i></a>
 <a href="mailto:bianxuan.med@outlook.com"><i class="fa-solid fa-envelope"></i></a>
-<a href="#"><i class="fa-solid fa-file-pdf"></i></a>
-</div>
 </div>
 </section>
 <!-- 职业履历 -->
 <section id="profile" class="container section">
-<h2 class="sec-title">职业履历 Career Profile</h2>
+<h2 class="sec-title zh-text">职业履历</h2>
+<h2 class="sec-title en-text">Career Profile</h2>
 <div class="timeline-box">
 <div class="timeline-item">
 <div class="time">Current</div>
 <div class="content">
-<h3>大中华区医疗总监 Medical Director | GE PDX Medical</h3>
-<p>搭建以疾病为核心的全球医学战略路线图，覆盖III期临床至指南纳入全周期；主导指南共识开发、MDT学术拓展、中日双中心培训体系；搭建院长论坛学术平台，标准化临床质控流程，落地AI智慧医院医学解决方案，大幅提升肝胆肿瘤与CEUS领域亚太学术领导力。</p>
+<h3 class="zh-text">大中华区医疗总监｜GE PDX Medical</h3>
+<h3 class="en-text">Medical Director, Greater China｜GE PDX Medical</h3>
+<p class="zh-text">主导全球疾病医学战略布局，覆盖临床三期至指南落地全链路。搭建亚太肝胆肿瘤学术体系、MDT多中心诊疗平台、院长高峰论坛。落地AI智慧医院医学体系与标准化临床质控，构建完整亚太学术影响力。</p>
+<p class="en-text">Lead global medical strategy from Phase III clinical development to guideline adoption. Build APAC hepatobiliary oncology academic ecosystem, cross-center MDT platform & hospital summit system. Establish AI hospital medical system and standardized clinical quality control.</p>
 </div>
 </div>
 <div class="timeline-item">
 <div class="time">2021 — 2024</div>
 <div class="content">
-<h3>全球医学负责人 SNZ Global Medical Lead | GE PDX Medical</h3>
-<p>融合中国临床实践落地全球战略；创办首届国际肝癌诊疗峰会，搭建国际学术交流平台；将本土临床证据转化为全球法规与指南影响力，输出可规模化的中国医疗创新实践方案。</p>
+<h3 class="zh-text">全球医学负责人｜GE PDX Medical</h3>
+<h3 class="en-text">Global Medical Lead｜GE PDX Medical</h3>
+<p class="zh-text">统筹全球医学事务与中国临床落地，创办首届国际肝癌诊疗峰会，推动中国本土临床证据进入全球指南与国际学术体系。</p>
+<p class="en-text">Align global medical strategy with local China clinical practice. Found the First International Liver Cancer Summit, promote Chinese clinical evidence into global guidelines and international academic systems.</p>
 </div>
 </div>
 <div class="timeline-item">
-<div class="time">Prior</div>
+<div class="time">Before 2021</div>
 <div class="content">
-<h3>愿景研究项目负责人 MA & Vision Project Lead | GE PDX Medical</h3>
-<p>牵头60家核心三甲医院筛选工作，统筹全项目从立项至交付全流程，11个月完成完整周期落地交付。</p>
-</div>
-</div>
-<div class="timeline-item">
-<div class="time">Earlier</div>
-<div class="content">
-<h3>医学事务 MA | Pfizer Medical</h3>
-<p>提供HEOR、卫生经济学研究证据支撑医保准入、新药上市与价格维护；统筹多维度临床证据产出，支撑药品商业化全链路医学需求。</p>
+<h3 class="zh-text">愿景项目医学负责人｜GE Healthcare</h3>
+<h3 class="en-text">Vision Project Medical Lead｜GE Healthcare</h3>
+<p class="zh-text">统筹全国60家顶级三甲医院临床项目筛选、立项、执行、结题全流程，11个月完成大型国家级医疗项目闭环交付。</p>
+<p class="en-text">Manage full-cycle clinical projects across 60 top-tier tertiary hospitals, completing national-level medical project delivery within 11 months.</p>
 </div>
 </div>
 <div class="timeline-item">
 <div class="time">Early Career</div>
 <div class="content">
-<h3>数据项目负责人/导师 Data Project Lead/Mentor | MSD R&D</h3>
-<p>临床研究全流程管理，主导多项全球临床项目，斩获集团杰出贡献奖项，输出标准化临床证据体系。</p>
+<h3 class="zh-text">医学事务专员｜Pfizer 辉瑞制药</h3>
+<h3 class="en-text">Medical Affairs Associate｜Pfizer</h3>
+<p class="zh-text">负责卫生经济学、真实世界证据、医保准入证据体系搭建，支撑新药上市、定价与医保谈判全链路医学价值输出。</p>
+<p class="en-text">Responsible for HEOR, RWE evidence building, medical value communication supporting drug launch, pricing and NRDL negotiation.</p>
+</div>
+</div>
+<div class="timeline-item">
+<div class="time">Early Career</div>
+<div class="content">
+<h3 class="zh-text">临床数据项目负责人｜MSD 默沙东研发中心</h3>
+<h3 class="en-text">Clinical Data Lead & Mentor｜MSD R&D</h3>
+<p class="zh-text">主导全球多中心临床研究项目管理，搭建标准化临床证据体系，获得集团杰出贡献奖项。</p>
+<p class="en-text">Led global multi-center clinical research programs, established standardized clinical evidence system and received corporate outstanding achievement awards.</p>
 </div>
 </div>
 </div>
 </section>
-<!-- 专业能力体系 -->
+<!-- 专业能力 -->
 <section id="expertise" class="container section dark-wrap">
-<h2 class="sec-title">专业核心能力 Expertise System</h2>
+<h2 class="sec-title zh-text">专业核心能力</h2>
+<h2 class="sec-title en-text">Core Expertise</h2>
 <div class="tech-grid">
 <div class="tech-card">
-<h4>跨区域学术生态搭建</h4>
-<p>大中华医学战略中心、专家智库、学术平台搭建；联动300+跨区域医学会，搭建150人专家网络，覆盖6000+KOL，构建完整亚太学术体系。</p>
+<h4 class="zh-text">全球医学战略搭建</h4>
+<h4 class="en-text">Global Medical Strategy</h4>
+<p class="zh-text">跨国药企医学路线图、疾病领域布局、全球多区域学术生态建设</p>
+<p class="en-text">Global medical roadmap, disease franchise layout, cross-region academic ecosystem building</p>
 </div>
 <div class="tech-card">
-<h4>全生命周期临床研发管理</h4>
-<p>肿瘤/心血管/消化/骨科全疾病管线；20+全球III-IV期临床项目；主导4项亚太肝癌诊疗指南共识，建立标准化临床证据框架。</p>
+<h4 class="zh-text">临床研发与指南</h4>
+<h4 class="en-text">Clinical R&D & Guidelines</h4>
+<p class="zh-text">III/IV期临床项目、真实世界研究、专家共识、诊疗指南撰写与发布</p>
+<p class="en-text">Phase III/IV trials, RWE study design, expert consensus & clinical guideline publication</p>
 </div>
 <div class="tech-card">
-<h4>医疗创新与项目落地</h4>
-<p>政策导向医疗创新、卫生技术评估、医院-专家协同模式；落地33家医院创新疗法项目，CDSS、AI医学影像、智慧医疗试点项目。</p>
+<h4 class="zh-text">卫生经济学 & 医保准入</h4>
+<h4 class="en-text">HEOR & Market Access</h4>
+<p class="zh-text">药物价值体系、卫生技术评估、医保谈判证据、药物经济学建模</p>
+<p class="en-text">Medical value storytelling, HTA evaluation, NRDL negotiation evidence, pharmacoeconomic modeling</p>
 </div>
 <div class="tech-card">
-<h4>卫生经济学与医保准入</h4>
-<p>HEOR、RWE真实世界研究、医保谈判证据构建、药品价值体系搭建，支撑NRDL医保目录准入。</p>
+<h4 class="zh-text">国际学术会议运营</h4>
+<h4 class="en-text">Global Academic Summit</h4>
+<p class="zh-text">中美欧日韩多国家MDT峰会、国际论坛、专家智库体系搭建</p>
+<p class="en-text">Multinational MDT summits, international academic forums & KOL ecosystem development</p>
 </div>
 <div class="tech-card">
-<h4>国际多学科MDT峰会运营</h4>
-<p>美/英/日/韩/中跨国MDT学术会议运营，45+国际奖项落地，推动区域医疗协同创新。</p>
+<h4 class="zh-text">AI智慧医疗落地</h4>
+<h4 class="en-text">AI & Smart Hospital</h4>
+<p class="zh-text">AI医学影像、智能诊疗路径、CDSS系统落地、智慧医院体系建设</p>
+<p class="en-text">AI medical imaging, intelligent clinical pathway, CDSS implementation & smart hospital construction</p>
 </div>
 <div class="tech-card">
-<h4>AI医疗与智慧医院转型</h4>
-<p>AI面部识别中枢神经疾病研究、智能医疗诊疗路径优化、AI临床工具培训体系搭建。</p>
+<h4 class="zh-text">高端医疗资源管理</h4>
+<h4 class="en-text">KOL & Hospital Management</h4>
+<p class="zh-text">全国6000+KOL维护、三甲医院项目管理、跨区域医学培训体系</p>
+<p class="en-text">Manage 6000+ nationwide KOLs, tertiary hospital cooperation & cross-region medical training system</p>
 </div>
 </div>
 </section>
-<!-- 核心落地成果 -->
+<!-- 核心成果 -->
 <section id="achievement" class="container section">
-<h2 class="sec-title">核心落地成果 Core Achievements</h2>
+<h2 class="sec-title zh-text">核心落地成果</h2>
+<h2 class="sec-title en-text">Key Achievements</h2>
 <ul class="result-list">
-<li>搭建完整APAC肝胆肿瘤学术生态，覆盖6000+领域KOL，输出4项亚太官方临床诊疗指南</li>
-<li>落地33家三甲医院创新诊疗合作体系，全国首个区域CDSS智慧医疗试点项目负责人</li>
-<li>创办首届国际肝癌诊疗峰会，打通中国临床证据向全球指南、法规转化通路</li>
-<li>主导20余项全球多中心III-IV期临床研究，覆盖肿瘤、心血管、消化、骨质疏松等多领域</li>
-<li>搭建跨区域医学人才培训体系，完成中日双中心临床医师培训项目落地</li>
-<li>11个月极速完成大型愿景临床研究项目全周期交付，统筹60家核心三甲医院资源</li>
+<li class="zh-text">搭建完整亚太肝胆肿瘤学术生态，覆盖6000+领域KOL，主导发布4项亚太官方临床诊疗指南</li>
+<li class="en-text">Built complete APAC hepatobiliary oncology academic ecosystem covering 6000+ KOLs, led 4 official APAC clinical guideline publications</li>
+<li class="zh-text">落地全国33家三甲医院智慧医疗创新体系，打造国内首个CDSS区域试点项目</li>
+<li class="en-text">Launched smart medical innovation system across 33 tertiary hospitals and built China’s first regional CDSS pilot project</li>
+<li class="zh-text">创办首届国际肝癌诊疗峰会，打通中国临床证据国际化通路</li>
+<li class="en-text">Founded the First International Liver Cancer Summit, enabling globalization of Chinese clinical evidence</li>
+<li class="zh-text">主导20余项全球多中心III/IV期临床研究，覆盖肿瘤、心血管、消化、骨质疏松多领域</li>
+<li class="en-text">Led more than 20 global multi-center Phase III/IV clinical trials covering oncology, cardiology, gastroenterology and osteoporosis</li>
+<li class="zh-text">建立中日双中心国际医师培训体系，推动跨境医疗学术交流常态化</li>
+<li class="en-text">Established China-Japan dual-center international physician training system to promote cross-border academic exchange</li>
+<li class="zh-text">11个月极速完成60家三甲医院大型国家级医学项目全周期交付</li>
+<li class="en-text">Delivered full-cycle national medical project covering 60 tertiary hospitals within 11 months</li>
 </ul>
 </section>
 <!-- 教育与学术资质 -->
 <section id="edu" class="container section dark-wrap">
-<h2 class="sec-title">教育背景与学术资质 Education & Academic Fellowship</h2>
+<h2 class="sec-title zh-text">教育背景 & 国际学术资质</h2>
+<h2 class="sec-title en-text">Education & Academic Fellowship</h2>
 <div class="tech-grid">
 <div class="tech-card">
-<h4>国际院士/研究员资质</h4>
-<p>英国皇家医学会院士；美国国家AI研究院高级研究员；亚太肝病学会APASL会员；英国诺丁汉大学高质量RCT临床研究认证。</p>
+<h4 class="zh-text">国际院士与研究员资质</h4>
+<h4 class="en-text">International Fellow Membership</h4>
+<p class="zh-text">英国皇家医学会院士、美国AI研究院高级研究员、亚太肝病学会会员</p>
+<p class="en-text">Fellow of Royal Society of Medicine, Senior Researcher of US AI Institute, APASL Member</p>
 </div>
 <div class="tech-card">
-<h4>海外访学与博士后研究</h4>
-<p>牛津大学博士后（类器官药物研发质控体系）；近畿大学消化病中心访问学者；莱斯特大学生命科学部合作研究员；Nature官方大师班学员。</p>
+<h4 class="zh-text">海外博士后 & 访学</h4>
+<h4 class="en-text">Overseas Postdoc & Visiting Scholar</h4>
+<p class="zh-text">牛津大学博士后、日本近畿大学访问学者、莱斯特大学合作研究员、Nature大师班学员</p>
+<p class="en-text">University of Oxford Postdoc, Kinki University Visiting Scholar, University of Leicester Researcher, Nature Masterclass Trainee</p>
 </div>
 <div class="tech-card">
-<h4>博士学位 Doctoral Degrees</h4>
-<p>医学博士（冠心病残余心血管风险干预）；管理博士（医疗人才跨领域培养创新体系）；医工交叉融合方向研究。</p>
+<h4 class="zh-text">博士学位</h4>
+<h4 class="en-text">Doctoral Degrees</h4>
+<p class="zh-text">医学博士、医疗管理博士、医工交叉研究方向</p>
+<p class="en-text">MD in Cardiovascular Medicine, PhD in Healthcare Management, Med-Engineering Interdisciplinary Research</p>
 </div>
 <div class="tech-card">
-<h4>硕士学位 Master Degrees</h4>
-<p>医学硕士（骨髓间充质干细胞肝纤维化治疗）；双学位国际商务经济学（双语）。</p>
+<h4 class="zh-text">硕士学位</h4>
+<h4 class="en-text">Master Degrees</h4>
+<p class="zh-text">医学硕士（肝纤维化干细胞方向）、国际商务经济学双学位</p>
+<p class="en-text">MMed in Liver Fibrosis & Stem Cell, Double Master in International Business Economics</p>
 </div>
 <div class="tech-card">
-<h4>本科学位 Bachelor</h4>
-<p>临床医学本科（国际双语项目）</p>
+<h4 class="zh-text">本科学位</h4>
+<h4 class="en-text">Bachelor Degree</h4>
+<p class="zh-text">临床医学（国际双语项目）</p>
+<p class="en-text">Clinical Medicine (International Bilingual Program)</p>
 </div>
 </div>
 </section>
-<!-- 认证与荣誉奖项 -->
+<!-- 荣誉奖项 -->
 <section id="cert" class="container section">
-<h2 class="sec-title">专业认证 & 荣誉奖项 Certification & Awards</h2>
+<h2 class="sec-title zh-text">专业认证 & 荣誉奖项</h2>
+<h2 class="sec-title en-text">Certifications & Honors</h2>
 <ul class="result-list">
-<li>专业资质：NIDA GCP-ICH认证、斯坦福AI医疗应用评估认证、耶鲁心理学导论认证、EMKT领导力认证、BMJ编辑研讨会认证</li>
-<li>GE集团荣誉：唯一入选业务线商业领导力发展项目；4次总经理奖、1次总裁奖，21项全球/区域专项奖项</li>
-<li>MSD集团荣誉：临床研究管理杰出贡献奖、中国总部优秀团队突出贡献奖</li>
+<li class="zh-text">专业资质：ICH-GCP、斯坦福AI医疗认证、耶鲁心理学认证、BMJ医学编辑认证、EMKT高级领导力认证</li>
+<li class="en-text">Certifications: ICH-GCP, Stanford AI Medicine Certification, Yale Psychology Certification, BMJ Editorial Training, EMKT Leadership Certification</li>
+<li class="zh-text">GE集团荣誉：总裁奖、四次总经理奖、21项全球及区域专项成就奖</li>
+<li class="en-text">GE Honors: President’s Award, 4× General Manager Awards, 21 Global & Regional Excellence Awards</li>
+<li class="zh-text">MSD集团荣誉：临床研究杰出贡献奖、中国总部优秀团队突出贡献奖</li>
+<li class="en-text">MSD Honors: Outstanding Clinical Research Contribution Award, China Headquarters Excellent Team Award</li>
 </ul>
 </section>
-<!-- 商务学术联系 -->
+<!-- 联系方式 -->
 <section id="contact" class="container section dark-wrap">
-<h2 class="sec-title">学术交流 & 商务合作 Contact</h2>
+<h2 class="sec-title zh-text">学术交流 & 商务合作</h2>
+<h2 class="sec-title en-text">Academic & Business Contact</h2>
 <div class="contact-text">
-<p><i class="fa-solid fa-envelope"></i> 学术商务邮箱：bianxuan.med@outlook.com</p>
-<p><i class="fa-brands fa-github"></i> GitHub：github.com/TianyuLiu26</p>
-<p><i class="fa-solid fa-building"></i> 合作方向：全球医学战略咨询、临床研发规划、国际学术会议共建、医院创新医疗落地、医保卫生经济学证据搭建</p>
+<p>
+<i class="fa-solid fa-envelope"></i>
+<span class="zh-text">商务邮箱：</span>
+<span class="en-text">Email：</span>
+           bianxuan.med@outlook.com
+</p>
+<p><i class="fa-brands fa-github"></i> GitHub：github.com/bianxuan1015</p>
+<p>
+<i class="fa-solid fa-building"></i>
+<span class="zh-text">合作方向：全球医学战略咨询、临床研发规划、国际学术会议共建、智慧医院落地、医保卫生经济学搭建</span>
+<span class="en-text">Business Fields: Global medical strategy consulting, clinical R&D planning, international academic cooperation, smart hospital implementation, HEOR & market access system building</span>
+</p>
 </div>
 </section>
 <!-- 页脚 -->
 <footer class="footer">
-<p>© 2026 BIAN XUAN | MEDICAL DIRECTOR PERSONAL PORTFOLIO | All Rights Reserved</p>
+<p class="zh-text">© 2026 边璇｜医学总监 个人学术官网 保留所有权利</p>
+<p class="en-text">© 2026 BIAN XUAN | Global Medical Director Official Portfolio | All Rights Reserved</p>
 </footer>
-<script src="script.js"></script>
+<!-- 双语切换脚本 -->
+<script>
+function switchLang(type) {
+   const zhText = document.querySelectorAll('.zh-text');
+   const enText = document.querySelectorAll('.en-text');
+   const btnZh = document.querySelectorAll('.lang-btn')[0];
+   const btnEn = document.querySelectorAll('.lang-btn')[1];
+   if (type === 'zh') {
+       zhText.forEach(item => item.style.display = 'block');
+       enText.forEach(item => item.style.display = 'none');
+       btnZh.classList.add('active');
+       btnEn.classList.remove('active');
+   } else {
+       zhText.forEach(item => item.style.display = 'none');
+       enText.forEach(item => item.style.display = 'block');
+       btnZh.classList.remove('active');
+       btnEn.classList.add('active');
+   }
+}
+</script>
 </body>
 </html>
