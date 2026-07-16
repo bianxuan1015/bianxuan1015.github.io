@@ -1,0 +1,179 @@
+/* 全局重置 */
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+html {
+   scroll-behavior: smooth;
+}
+body {
+   font-family: "Microsoft YaHei", Helvetica, serif;
+   background-color: #0c0c0e;
+   color: #e6e6e6;
+   line-height: 1.75;
+}
+a {
+   color: #c8c8c8;
+   text-decoration: none;
+   transition: all 0.3s ease;
+}
+a:hover {
+   color: #d4af37; /* 轻奢金色 */
+}
+ul {
+   list-style: none;
+}
+/* 通用容器 */
+.container {
+   max-width: 1200px;
+   margin: 0 auto;
+   padding: 0 40px;
+}
+.section {
+   padding: 80px 0;
+}
+.dark-wrap {
+   background-color: #141417;
+}
+.sec-title {
+   font-size: 28px;
+   color: #d4af37;
+   letter-spacing: 2px;
+   margin-bottom: 45px;
+   font-weight: 400;
+}
+/* 导航栏 */
+.navbar {
+   width: 100%;
+   position: fixed;
+   top: 0;
+   left: 0;
+   z-index: 999;
+   background: rgba(12,12,14,0.92);
+   backdrop-filter: blur(10px);
+   border-bottom: 1px solid #222;
+}
+.nav-wrap {
+   max-width: 1200px;
+   margin: 0 auto;
+   padding: 22px 40px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+.brand {
+   font-size: 20px;
+   letter-spacing: 1px;
+   color: #d4af37;
+   font-weight: bold;
+}
+.nav-menu a {
+   margin-left: 36px;
+   font-size: 15px;
+   letter-spacing: 0.5px;
+}
+/* 首页总裁封面 */
+.hero {
+   height: 100vh;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+   background: linear-gradient(#0c0c0e, #121215);
+}
+.hero-inner .sub-title {
+   font-size: 14px;
+   letter-spacing: 4px;
+   color: #888;
+   margin-bottom: 16px;
+}
+.hero-inner .main-name {
+   font-size: 68px;
+   font-weight: normal;
+   letter-spacing: 6px;
+   color: #fff;
+   margin-bottom: 12px;
+}
+.hero-inner .desc {
+   font-size: 18px;
+   color: #aaa;
+   margin-bottom: 35px;
+}
+.line {
+   width: 100px;
+   height: 1px;
+   background: #d4af37;
+   margin: 0 auto 35px;
+}
+.social-group a {
+   font-size: 26px;
+   margin: 0 14px;
+}
+/* 履历时间线 */
+.timeline-item {
+   display: flex;
+   margin-bottom: 40px;
+   gap: 28px;
+}
+.timeline-item .time {
+   min-width: 160px;
+   color: #d4af37;
+   font-weight: 500;
+}
+.timeline-item h3 {
+   font-size: 20px;
+   margin-bottom: 8px;
+   color: #f1f1f1;
+}
+.timeline-item p {
+   color: #b8b8b8;
+}
+/* 技术网格卡片 */
+.tech-grid {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+   gap: 26px;
+}
+.tech-card {
+   border: 1px solid #28282c;
+   padding: 28px;
+   transition: 0.3s;
+}
+.tech-card:hover {
+   border-color: #d4af37;
+}
+.tech-card h4 {
+   font-size: 19px;
+   margin-bottom: 10px;
+   color: #fff;
+}
+.tech-card p {
+   color: #a0a0a0;
+   font-size: 15px;
+}
+/* 成果列表 */
+.result-list li {
+   font-size: 17px;
+   padding: 12px 0;
+   border-bottom: 1px solid #222;
+   color: #ddd;
+}
+/* 联系模块 */
+.contact-text p {
+   font-size: 17px;
+   margin: 14px 0;
+   color: #c0c0c0;
+}
+.contact-text i {
+   color: #d4af37;
+   margin-right: 10px;
+}
+/* 页脚 */
+.footer {
+   text-align: center;
+   padding: 30px;
+   border-top: 1px solid #222;
+   color: #777;
+   font-size: 14px;
+}
