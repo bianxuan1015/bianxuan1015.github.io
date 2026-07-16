@@ -16,6 +16,8 @@
            background-color: #000000;
            color: #f5f5f5;
            line-height: 1.9;
+           max-width: 100%;
+           overflow-x: hidden;
        }
        a {
            text-decoration: none;
@@ -24,32 +26,33 @@
        .en-text {
            display: none;
        }
-       /* 语言切换按钮 */
+       /* 语言切换按钮 桌面端右置不遮挡导航 */
        .lang-switch {
            position: fixed;
-           top: 24px;
-           right: 36px;
+           top: 28px;
+           right: 50px;
            z-index: 9999;
+           display: flex;
+           gap: 8px;
        }
        .lang-btn {
            background: transparent;
            border: 1px solid #d4af37;
            color: #d4af37;
-           padding: 6px 16px;
+           padding: 7px 18px;
            border-radius: 30px;
-           margin: 0 5px;
            cursor: pointer;
-           font-size: 14px;
+           font-size: 15px;
            transition: all 0.3s ease;
        }
        .lang-btn.active {
            background-color: #d4af37;
            color: #000;
        }
-       /* 导航栏 */
+       /* 导航栏 桌面端左右彻底分离，不挤压 */
        .navbar {
            width: 100%;
-           padding: 24px 40px;
+           padding: 26px 50px;
            border-bottom: 1px solid #222;
            display: flex;
            align-items: center;
@@ -57,24 +60,30 @@
            position: sticky;
            top: 0;
            background: #000;
-           z-index: 999;
+           z-index: 998;
        }
        .brand {
-           font-size: 28px;
+           font-size: 30px;
            color: #d4af37;
            font-weight: bold;
            letter-spacing: 2px;
+           min-width: 180px;
+       }
+       .nav-menu {
+           display: flex;
+           gap: 22px;
+           flex-wrap: nowrap;
        }
        .nav-menu a {
-           margin: 0 14px;
-           font-size: 16px;
+           font-size: 17px;
            color: #ccc;
            transition: 0.2s;
+           white-space: nowrap;
        }
        .nav-menu a:hover {
            color: #d4af37;
        }
-       /* 主视觉区 */
+       /* 主视觉区 电脑端加宽居中，文字不挤 */
        .hero {
            min-height: 80vh;
            display: flex;
@@ -82,139 +91,164 @@
            align-items: center;
            justify-content: center;
            text-align: center;
-           padding: 40px 20px;
+           padding: 40px 30px;
+           max-width: 1400px;
+           margin: 0 auto;
        }
        .sub-title {
-           font-size: 20px;
+           font-size: 22px;
            color: #aaa;
-           margin-bottom: 16px;
+           margin-bottom: 18px;
        }
        .main-name {
-           font-size: 48px;
+           font-size: 52px;
            color: #d4af37;
-           margin-bottom: 20px;
+           margin-bottom: 22px;
            letter-spacing: 4px;
        }
        .desc {
-           max-width: 900px;
-           font-size: 18px;
+           max-width: 1000px;
+           font-size: 19px;
            color: #bbb;
-           margin-bottom: 30px;
+           margin-bottom: 32px;
        }
        .line {
-           width: 120px;
+           width: 140px;
            height: 2px;
            background: #d4af37;
-           margin-bottom: 30px;
+           margin-bottom: 32px;
        }
        .social-group a {
-           font-size: 26px;
-           margin: 0 12px;
+           font-size: 28px;
+           margin: 0 14px;
            color: #d4af37;
        }
-       /* 通用区块 */
+       /* 通用区块 电脑端最大宽度1400px，两侧留白不贴边 */
        .container {
-           max-width: 1200px;
+           max-width: 1400px;
            margin: 0 auto;
-           padding: 60px 30px;
+           padding: 70px 50px;
        }
        .dark-wrap {
            background-color: #0a0a0a;
        }
        .sec-title {
-           font-size: 34px;
+           font-size: 36px;
            color: #d4af37;
-           margin-bottom: 40px;
+           margin-bottom: 45px;
            text-align: center;
        }
-       /* 时间线履历 */
+       /* 时间线履历 桌面端加宽间距 */
        .timeline-item {
            border-left: 2px solid #d4af37;
-           padding-left: 24px;
-           margin-bottom: 36px;
+           padding-left: 30px;
+           margin-bottom: 42px;
            position: relative;
+           max-width: 1100px;
        }
        .timeline-item::before {
            content: "";
-           width: 12px;
-           height: 12px;
+           width: 14px;
+           height: 14px;
            background: #d4af37;
            border-radius: 50%;
            position: absolute;
-           left: -7px;
+           left: -8px;
            top: 4px;
        }
        .time {
            color: #d4af37;
            font-weight: bold;
-           font-size: 17px;
-           margin-bottom: 8px;
+           font-size: 18px;
+           margin-bottom: 10px;
        }
        .timeline-item h3 {
-           font-size: 20px;
-           margin-bottom: 10px;
+           font-size: 22px;
+           margin-bottom: 12px;
        }
        .timeline-item p {
            color: #ccc;
-           font-size: 17px;
+           font-size: 18px;
+           line-height: 2;
        }
-       /* 能力卡片网格 */
+       /* 能力卡片网格 电脑端4列均匀分布，不拥挤 */
        .tech-grid {
            display: grid;
-           grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-           gap: 26px;
+           grid-template-columns: repeat(4, 1fr);
+           gap: 30px;
        }
        .tech-card {
            border: 1px solid #222;
-           padding: 26px;
+           padding: 30px;
            border-radius: 8px;
            transition: 0.3s;
+           min-height: 260px;
        }
        .tech-card:hover {
            border-color: #d4af37;
        }
        .tech-card h4 {
            color: #d4af37;
-           font-size: 20px;
-           margin-bottom: 12px;
+           font-size: 22px;
+           margin-bottom: 14px;
        }
        .tech-card p {
            color: #bbb;
+           font-size: 17px;
        }
-       /* 成果列表 */
+       /* 成果列表 加宽行高 */
        .result-list li {
            list-style: none;
-           padding: 14px 0;
+           padding: 16px 0;
            border-bottom: 1px solid #222;
-           font-size: 17px;
+           font-size: 18px;
            color: #ddd;
+           max-width: 1100px;
        }
-       /* 联系方式 */
+       /* 联系方式区块 电脑端文字加宽排版 */
        .contact-text p {
-           font-size: 19px;
-           margin: 20px 0;
+           font-size: 20px;
+           margin: 24px 0;
            color: #ddd;
+           max-width: 1100px;
        }
        .contact-text i {
            color: #d4af37;
-           margin-right: 12px;
-           width: 24px;
+           margin-right: 14px;
+           width: 26px;
        }
        /* 页脚 */
        .footer {
-           padding: 40px 20px;
+           padding: 45px 20px;
            text-align: center;
            border-top: 1px solid #222;
            color: #777;
-           font-size: 16px;
+           font-size: 17px;
        }
-       /* 移动端适配 */
+       /* 平板适配 */
+       @media(max-width:1200px) {
+           .tech-grid {
+               grid-template-columns: repeat(2, 1fr);
+           }
+           .nav-menu {
+               gap: 16px;
+           }
+           .navbar {
+               padding: 24px 30px;
+           }
+       }
+       /* 移动端适配（保留原有舒适手机样式） */
        @media(max-width:768px) {
            .navbar {
                flex-direction: column;
                gap: 20px;
                text-align: center;
                padding: 20px 10px;
+           }
+           .nav-menu {
+               flex-wrap: wrap;
+               justify-content: center;
+               gap: 10px;
            }
            .nav-menu a {
                margin: 0 6px;
@@ -224,8 +258,14 @@
                font-size: 32px;
            }
            .lang-switch {
-               right: 10px;
-               top: 14px;
+               right: 12px;
+               top: 16px;
+           }
+           .tech-grid {
+               grid-template-columns: 1fr;
+           }
+           .container {
+               padding: 50px 20px;
            }
        }
 </style>
@@ -236,7 +276,7 @@
 <button class="lang-btn active" onclick="switchLang('zh')">中文</button>
 <button class="lang-btn" onclick="switchLang('en')">EN</button>
 </div>
-<!-- 导航栏 -->
+<!-- 导航栏 桌面端左右分离不挤压 -->
 <nav class="navbar">
 <div class="brand">BIANXUAN.MED</div>
 <div class="nav-menu">
