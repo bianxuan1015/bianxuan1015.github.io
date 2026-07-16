@@ -26,7 +26,7 @@
        .en-text {
            display: none;
        }
-       /* 语言切换按钮 桌面端右置不遮挡导航 */
+       /* 语言切换按钮 */
        .lang-switch {
            position: fixed;
            top: 28px;
@@ -49,7 +49,7 @@
            background-color: #d4af37;
            color: #000;
        }
-       /* 导航栏 桌面端左右彻底分离，不挤压 */
+       /* 导航栏 */
        .navbar {
            width: 100%;
            padding: 26px 50px;
@@ -83,7 +83,7 @@
        .nav-menu a:hover {
            color: #d4af37;
        }
-       /* 首页头部个人简介区（匹配图片完整头衔） */
+       /* 首页头部 分层拆分，解决文字堆砌 */
        .hero {
            min-height: auto;
            padding: 60px 50px;
@@ -96,18 +96,43 @@
            margin-bottom: 24px;
            letter-spacing: 2px;
        }
+       .hero-card {
+           background: #0a0a0a;
+           border-radius: 12px;
+           padding: 36px;
+           margin-bottom: 50px;
+           border-left: 4px solid #d4af37;
+       }
        .hero-title-sub {
            font-size: 22px;
            color: #fff;
            margin-bottom: 16px;
        }
-       .hero-intro {
+       .hero-cert-list {
+           margin-top: 14px;
+           color: #ddd;
+           font-size: 17px;
+           line-height: 2;
+       }
+       /* 四大业务区块独立卡片，分散排版 */
+       .section-block {
+           background: #0a0a0a;
+           border-radius: 10px;
+           padding: 32px;
+           margin-bottom: 30px;
+       }
+       .block-title {
+           font-size: 24px;
+           color: #d4af37;
+           margin-bottom: 16px;
+           font-weight: bold;
+       }
+       .block-content {
            font-size: 18px;
            color: #ddd;
            line-height: 2;
-           margin-bottom: 40px;
        }
-       /* 通用区块 电脑端最大宽度1400px，两侧留白不贴边 */
+       /* 通用容器 */
        .container {
            max-width: 1400px;
            margin: 0 auto;
@@ -122,22 +147,7 @@
            margin-bottom: 45px;
            text-align: left;
        }
-       /* 四大核心业务板块 正文排版 */
-       .section-block {
-           margin-bottom: 50px;
-       }
-       .block-title {
-           font-size: 24px;
-           color: #d4af37;
-           margin-bottom: 16px;
-           font-weight: bold;
-       }
-       .block-content {
-           font-size: 18px;
-           color: #ddd;
-           line-height: 2;
-       }
-       /* 时间线履历 桌面端加宽间距 */
+       /* 时间线履历 */
        .timeline-item {
            border-left: 2px solid #d4af37;
            padding-left: 30px;
@@ -170,7 +180,7 @@
            font-size: 18px;
            line-height: 2;
        }
-       /* 能力卡片网格 电脑端4列均匀分布，不拥挤 */
+       /* 能力卡片网格 */
        .tech-grid {
            display: grid;
            grid-template-columns: repeat(4, 1fr);
@@ -195,7 +205,7 @@
            color: #bbb;
            font-size: 17px;
        }
-       /* 成果列表 加宽行高 */
+       /* 成果列表 */
        .result-list li {
            list-style: none;
            padding: 16px 0;
@@ -204,7 +214,7 @@
            color: #ddd;
            max-width: 1100px;
        }
-       /* 联系方式区块 电脑端文字加宽排版 */
+       /* 联系方式 */
        .contact-text p {
            font-size: 20px;
            margin: 24px 0;
@@ -236,7 +246,7 @@
                padding: 24px 30px;
            }
        }
-       /* 移动端适配（保留原有舒适手机样式） */
+       /* 移动端适配 */
        @media(max-width:768px) {
            .navbar {
                flex-direction: column;
@@ -266,16 +276,19 @@
            .container, .hero {
                padding: 50px 20px;
            }
+           .hero-card, .section-block {
+               padding: 24px 18px;
+           }
        }
 </style>
 </head>
 <body>
-<!-- 语言切换按钮 -->
+<!-- 语言切换 -->
 <div class="lang-switch">
 <button class="lang-btn active" onclick="switchLang('zh')">中文</button>
 <button class="lang-btn" onclick="switchLang('en')">EN</button>
 </div>
-<!-- 导航栏 桌面端左右分离不挤压 -->
+<!-- 导航栏 -->
 <nav class="navbar">
 <div class="brand">BIANXUAN.MED</div>
 <div class="nav-menu">
@@ -295,21 +308,32 @@
 <a href="#contact" class="en-text">Contact</a>
 </div>
 </nav>
-<!-- 首页头部 100%还原图片完整个人简介（一字未删） -->
+<!-- 首页：分层卡片拆分，消除文字堆砌，原图内容完整保留 -->
 <section id="home" class="hero">
 <h1 class="hero-title-main zh-text">学术顾问 边璇</h1>
 <h1 class="hero-title-main en-text">Academic Advisor Cecilia Bian</h1>
-<div class="hero-intro zh-text">
+<!-- 个人基础信息独立卡片 -->
+<div class="hero-card">
+<div class="zh-text">
 <p class="hero-title-sub">通用医疗生命科学事业部大中华区 医学研发总监</p>
 <p>曾任通用医疗生命科学事业部全球sonazoid 医学负责人、全球临床研究审核专家委员会委员</p>
-<p>英国皇家医学会 会士；美国国家人工智能科学院高级研究员；斯坦福医疗人工智能专业认证，兼任中关村人工智能研究院医学研发中心荣誉主任；英国莱斯特大学医学院生命科学部客座教授；近畿大学访问学者 牛津大学博士后，医学及管理学双博士。</p>
+<div class="hero-cert-list">
+               英国皇家医学会 会士；美国国家人工智能科学院高级研究员；斯坦福医疗人工智能专业认证；
+               兼任中关村人工智能研究院医学研发中心荣誉主任；英国莱斯特大学医学院生命科学部客座教授；
+               近畿大学访问学者；牛津大学博士后，医学及管理学双博士。
 </div>
-<div class="hero-intro en-text">
+</div>
+<div class="en-text">
 <p class="hero-title-sub">Medical R&D Director, Greater China, GE Healthcare Life Sciences</p>
 <p>Former Global Sonazoid Medical Lead & Member of Global Clinical Research Review Expert Committee, GE Healthcare Life Sciences</p>
-<p>Fellow of Royal Society of Medicine; Senior Research Fellow, National Academy of Artificial Intelligence USA; Stanford Certified Medical AI Specialist; Honorary Director, Medical R&D Center, Zhongguancun Institute of Artificial Intelligence; Visiting Professor, Division of Life Sciences, University of Leicester UK; Visiting Scholar, Kindai University; Postdoc, University of Oxford; Double Doctorates in Medicine & Healthcare Management.</p>
+<div class="hero-cert-list">
+               Fellow of Royal Society of Medicine; Senior Research Fellow, National Academy of Artificial Intelligence USA; Stanford Certified Medical AI Specialist;
+               Honorary Director, Medical R&D Center, Zhongguancun Institute of Artificial Intelligence; Visiting Professor, Division of Life Sciences, University of Leicester UK;
+               Visiting Scholar, Kindai University; Postdoc, University of Oxford; Double Doctorates in Medicine & Healthcare Management.
 </div>
-<!-- 四大核心业务板块 完全复刻图片原文无删减 -->
+</div>
+</div>
+<!-- 四大业务分独立区块卡片，分散排版不堆砌 -->
 <div class="section-block">
 <h2 class="block-title zh-text">一、全链条国际临床研发操盘，构筑标准化医学知识管理体系</h2>
 <h2 class="block-title en-text">I. End-to-End Global Clinical R&D Operation & Standardized Medical Knowledge Management System</h2>
@@ -324,7 +348,7 @@
 <h2 class="block-title zh-text">二、AI医疗影像转化全链路落地，打造医工交叉创新闭环</h2>
 <h2 class="block-title en-text">II. Full-Stack Commercialization of AI Medical Imaging & Closed-Loop Med-Engineering Innovation</h2>
 <div class="block-content zh-text">
-           深耕精准影像、超声造影、AI辅助诊断技术产业化创新，持有，打通影像硬件、智能算法、临床验证一体化研发路径。依托全球顶尖临床专家资源完成技术循证论证搭建IST研究者发起项目孵化通道，推动20余项临床前创新项目顺利进入临床验证；搭建国际化分层人才培养体系，落地40余场跨学科专业培训，形成可复制的医学创新成果转化机制，支撑智能医疗设备临床迭代与规模化落地。
+           深耕精准影像、超声造影、AI辅助诊断技术产业化创新，打通影像硬件、智能算法、临床验证一体化研发路径。依托全球顶尖临床专家资源完成技术循证论证，搭建IST研究者发起项目孵化通道，推动20余项临床前创新项目顺利进入临床验证；搭建国际化分层人才培养体系，落地40余场跨学科专业培训，形成可复制的医学创新成果转化机制，支撑智能医疗设备临床迭代与规模化落地。
 </div>
 <div class="block-content en-text">
            Deep expertise in industrialization innovation of precision imaging, ultrasound contrast and AI-aided diagnosis. Built an integrated R&D pipeline covering imaging hardware, intelligent algorithms and clinical validation. Leveraged top global KOL resources to complete evidence validation and set up incubation pipelines for IST investigator-initiated trials, advancing over 20 preclinical innovative projects into clinical validation. Established a tiered international talent development system with more than 40 interdisciplinary professional training sessions delivered, creating a replicable commercialization mechanism for medical innovation to support clinical iteration and large-scale deployment of intelligent medical devices.
@@ -351,7 +375,7 @@
 </div>
 </div>
 </section>
-<!-- 职业履历（修正辉瑞岗位为医学事务） -->
+<!-- 职业履历：辉瑞岗位修正为【医学事务】，删除专员 -->
 <section id="profile" class="container section dark-wrap">
 <h2 class="sec-title zh-text">职业履历</h2>
 <h2 class="sec-title en-text">Career Profile</h2>
@@ -361,8 +385,8 @@
 <div class="content">
 <h3 class="zh-text">大中华区医学研发总监｜通用医疗生命科学事业部</h3>
 <h3 class="en-text">Medical R&D Director, Greater China｜GE Healthcare Life Sciences</h3>
-<p class="zh-text">统筹全球新药临床研发、AI医疗影像转化、跨国学术资源搭建、数字化医疗创新四大业务板块，完整落地图片所示全链条医学创新业务体系。</p>
-<p class="en-text">Governed four core business divisions: global clinical drug R&D, AI medical imaging commercialization, cross-border academic network construction and digital medical innovation, fully delivering the end-to-end medical innovation framework detailed above.</p>
+<p class="zh-text">统筹全球新药临床研发、AI医疗影像转化、跨国学术资源搭建、数字化医疗创新四大业务板块，落地全链条医学创新业务体系。</p>
+<p class="en-text">Governed four core business divisions: global clinical drug R&D, AI medical imaging commercialization, cross-border academic network construction and digital medical innovation, fully delivering the end-to-end medical innovation framework.</p>
 </div>
 </div>
 <div class="timeline-item">
@@ -386,8 +410,8 @@
 <div class="timeline-item">
 <div class="time">Early Career</div>
 <div class="content">
-<h3 class="zh-text">医学事务专员｜Pfizer 辉瑞制药</h3>
-<h3 class="en-text">Medical Affairs Associate｜Pfizer</h3>
+<h3 class="zh-text">医学事务｜Pfizer 辉瑞制药</h3>
+<h3 class="en-text">Medical Affairs｜Pfizer</h3>
 <p class="zh-text">负责卫生经济学、真实世界证据、医保准入证据体系搭建，支撑新药上市、定价与医保谈判全链路医学价值输出。</p>
 <p class="en-text">Responsible for HEOR, RWE evidence building, medical value communication supporting drug launch, pricing and NRDL negotiation.</p>
 </div>
@@ -451,7 +475,7 @@
 <li class="en-text">Delivered full-cycle national medical project covering 60 tertiary hospitals within 11 months</li>
 </ul>
 </section>
-<!-- 教育与学术资质（完全同步图片） -->
+<!-- 教育与学术资质 -->
 <section id="edu" class="container section">
 <h2 class="sec-title zh-text">教育背景 & 国际学术资质</h2>
 <h2 class="sec-title en-text">Education & Academic Fellowship</h2>
@@ -489,7 +513,7 @@
 <li class="en-text">MSD Honors: Outstanding Clinical Research Contribution Award, China Headquarters Excellent Team Award</li>
 </ul>
 </section>
-<!-- 联系方式（更新邮箱ceciliabian06@gmail.com） -->
+<!-- 联系方式（更新指定邮箱） -->
 <section id="contact" class="container section">
 <h2 class="sec-title zh-text">学术交流 & 商务合作</h2>
 <h2 class="sec-title en-text">Academic & Business Contact</h2>
@@ -510,7 +534,7 @@
 </section>
 <!-- 页脚 -->
 <footer class="footer">
-<p class="zh-text">© 2026 边璇｜医学研发总监 个人学术官网 保留所有权利</p>
+<p class="zh-text">© 2026 边璇｜学术顾问 个人学术官网 保留所有权利</p>
 <p class="en-text">© 2026 Cecilia Bian | Global Medical R&D Director Official Portfolio | All Rights Reserved</p>
 </footer>
 <!-- 双语切换脚本 -->
