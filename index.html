@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bian Xuan | Global Medical Director</title>
+<title>Bian Xuan | Global Medical R&D Director</title>
 <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
        * {
@@ -83,45 +83,29 @@
        .nav-menu a:hover {
            color: #d4af37;
        }
-       /* 主视觉区 电脑端加宽居中，文字不挤 */
+       /* 首页头部个人简介区（匹配图片完整头衔） */
        .hero {
-           min-height: 80vh;
-           display: flex;
-           flex-direction: column;
-           align-items: center;
-           justify-content: center;
-           text-align: center;
-           padding: 40px 30px;
+           min-height: auto;
+           padding: 60px 50px;
            max-width: 1400px;
            margin: 0 auto;
        }
-       .sub-title {
+       .hero-title-main {
+           font-size: 38px;
+           color: #d4af37;
+           margin-bottom: 24px;
+           letter-spacing: 2px;
+       }
+       .hero-title-sub {
            font-size: 22px;
-           color: #aaa;
-           margin-bottom: 18px;
+           color: #fff;
+           margin-bottom: 16px;
        }
-       .main-name {
-           font-size: 52px;
-           color: #d4af37;
-           margin-bottom: 22px;
-           letter-spacing: 4px;
-       }
-       .desc {
-           max-width: 1000px;
-           font-size: 19px;
-           color: #bbb;
-           margin-bottom: 32px;
-       }
-       .line {
-           width: 140px;
-           height: 2px;
-           background: #d4af37;
-           margin-bottom: 32px;
-       }
-       .social-group a {
-           font-size: 28px;
-           margin: 0 14px;
-           color: #d4af37;
+       .hero-intro {
+           font-size: 18px;
+           color: #ddd;
+           line-height: 2;
+           margin-bottom: 40px;
        }
        /* 通用区块 电脑端最大宽度1400px，两侧留白不贴边 */
        .container {
@@ -136,7 +120,22 @@
            font-size: 36px;
            color: #d4af37;
            margin-bottom: 45px;
-           text-align: center;
+           text-align: left;
+       }
+       /* 四大核心业务板块 正文排版 */
+       .section-block {
+           margin-bottom: 50px;
+       }
+       .block-title {
+           font-size: 24px;
+           color: #d4af37;
+           margin-bottom: 16px;
+           font-weight: bold;
+       }
+       .block-content {
+           font-size: 18px;
+           color: #ddd;
+           line-height: 2;
        }
        /* 时间线履历 桌面端加宽间距 */
        .timeline-item {
@@ -254,8 +253,8 @@
                margin: 0 6px;
                font-size: 14px;
            }
-           .main-name {
-               font-size: 32px;
+           .hero-title-main {
+               font-size: 28px;
            }
            .lang-switch {
                right: 12px;
@@ -264,7 +263,7 @@
            .tech-grid {
                grid-template-columns: 1fr;
            }
-           .container {
+           .container, .hero {
                padding: 50px 20px;
            }
        }
@@ -296,40 +295,83 @@
 <a href="#contact" class="en-text">Contact</a>
 </div>
 </nav>
-<!-- 主视觉封面 -->
+<!-- 首页头部 100%还原图片完整个人简介（一字未删） -->
 <section id="home" class="hero">
-<p class="sub-title zh-text">全球医疗战略负责人｜跨国药企医学总监</p>
-<p class="sub-title en-text">Global Medical Strategy Leader | Senior Medical Director</p>
-<h1 class="main-name">边璇 BIAN XUAN</h1>
-<p class="desc zh-text">十余年国际医疗事务管理经验｜肿瘤医学战略｜亚太学术生态搭建｜临床研发与真实世界研究</p>
-<p class="desc en-text">10+ years global medical affairs experience | Oncology strategy | APAC academic ecosystem | Clinical & RWE research</p>
-<div class="line"></div>
-<div class="social-group">
-<a href="https://github.com/bianxuan1015" target="_blank"><i class="fa-brands fa-github"></i></a>
-<a href="mailto:bianxuan.med@outlook.com"><i class="fa-solid fa-envelope"></i></a>
+<h1 class="hero-title-main zh-text">学术顾问 边璇</h1>
+<h1 class="hero-title-main en-text">Academic Advisor Cecilia Bian</h1>
+<div class="hero-intro zh-text">
+<p class="hero-title-sub">通用医疗生命科学事业部大中华区 医学研发总监</p>
+<p>曾任通用医疗生命科学事业部全球sonazoid 医学负责人、全球临床研究审核专家委员会委员</p>
+<p>英国皇家医学会 会士；美国国家人工智能科学院高级研究员；斯坦福医疗人工智能专业认证，兼任中关村人工智能研究院医学研发中心荣誉主任；英国莱斯特大学医学院生命科学部客座教授；近畿大学访问学者 牛津大学博士后，医学及管理学双博士。</p>
+</div>
+<div class="hero-intro en-text">
+<p class="hero-title-sub">Medical R&D Director, Greater China, GE Healthcare Life Sciences</p>
+<p>Former Global Sonazoid Medical Lead & Member of Global Clinical Research Review Expert Committee, GE Healthcare Life Sciences</p>
+<p>Fellow of Royal Society of Medicine; Senior Research Fellow, National Academy of Artificial Intelligence USA; Stanford Certified Medical AI Specialist; Honorary Director, Medical R&D Center, Zhongguancun Institute of Artificial Intelligence; Visiting Professor, Division of Life Sciences, University of Leicester UK; Visiting Scholar, Kindai University; Postdoc, University of Oxford; Double Doctorates in Medicine & Healthcare Management.</p>
+</div>
+<!-- 四大核心业务板块 完全复刻图片原文无删减 -->
+<div class="section-block">
+<h2 class="block-title zh-text">一、全链条国际临床研发操盘，构筑标准化医学知识管理体系</h2>
+<h2 class="block-title en-text">I. End-to-End Global Clinical R&D Operation & Standardized Medical Knowledge Management System</h2>
+<div class="block-content zh-text">
+           拥有十余年全球新药研发、跨境学术合作与大型创新项目统筹经验，精通创新药物全生命周期临床管理，聚焦卫生经济学HEOR、真实世界RWE研究、新药上市医学策略、政策导向型医学证据开发四大核心方向。统筹20余项覆盖多疾病赛道的全球多中心临床试验，病种囊括胸腹部肿瘤、心脑血管、神经退行性疾病、肝病等；完整主导III-IV期国际试验全流程，临床数字化工具开发等。与牛津大学、香港大学、东京大学、美国顶尖生物医学机构等全球30+院校IIT/IST联合研究，形成成熟跨境科研协作与医学证据沉淀范式。
+</div>
+<div class="block-content en-text">
+           Over 10 years of comprehensive experience in global new drug R&D, cross-border academic collaboration and large-scale innovative project governance. Expert in full-lifecycle clinical management of innovative medicines, focusing on four core pillars: HEOR, real-world evidence (RWE), medical launch strategy, policy-oriented medical evidence development. Governed more than 20 global multi-center clinical trials across diverse therapeutic areas including thoracic & abdominal oncology, cardiovascular & cerebrovascular disorders, neurodegenerative diseases and hepatology. Led full end-to-end Phase III-IV international trials and clinical digital tool development. Established IIT/IST joint research partnerships with over 30 global institutions including University of Oxford, University of Hong Kong, University of Tokyo and top US biomedical institutes, forming a mature cross-border research collaboration and medical evidence accumulation framework.
+</div>
+</div>
+<div class="section-block">
+<h2 class="block-title zh-text">二、AI医疗影像转化全链路落地，打造医工交叉创新闭环</h2>
+<h2 class="block-title en-text">II. Full-Stack Commercialization of AI Medical Imaging & Closed-Loop Med-Engineering Innovation</h2>
+<div class="block-content zh-text">
+           深耕精准影像、超声造影、AI辅助诊断技术产业化创新，持有，打通影像硬件、智能算法、临床验证一体化研发路径。依托全球顶尖临床专家资源完成技术循证论证搭建IST研究者发起项目孵化通道，推动20余项临床前创新项目顺利进入临床验证；搭建国际化分层人才培养体系，落地40余场跨学科专业培训，形成可复制的医学创新成果转化机制，支撑智能医疗设备临床迭代与规模化落地。
+</div>
+<div class="block-content en-text">
+           Deep expertise in industrialization innovation of precision imaging, ultrasound contrast and AI-aided diagnosis. Built an integrated R&D pipeline covering imaging hardware, intelligent algorithms and clinical validation. Leveraged top global KOL resources to complete evidence validation and set up incubation pipelines for IST investigator-initiated trials, advancing over 20 preclinical innovative projects into clinical validation. Established a tiered international talent development system with more than 40 interdisciplinary professional training sessions delivered, creating a replicable commercialization mechanism for medical innovation to support clinical iteration and large-scale deployment of intelligent medical devices.
+</div>
+</div>
+<div class="section-block">
+<h2 class="block-title zh-text">三、全球顶尖学术资源统筹，搭建循证医学证据创新平台</h2>
+<h2 class="block-title en-text">III. Global Top-Tier Academic Resource Governance & Evidence-Based Medicine Innovation Platform</h2>
+<div class="block-content zh-text">
+           以疾病为核心搭建常态化国际学术交流机制，搭建覆盖中美日韩英的跨国MDT国际学术协作网络，储备200余位海内外权威临床专家KOL资源库；多学科学术峰会线上辐射40000余名行业专家；推动精准影像创新技术落地全国省市级医院，新技术临床落地周期缩短40%。系统性整合、沉淀循证医学证据，持续输出标准化证据材料，为智能医疗模型训练、临床算法迭代提供高质量权威支撑。
+</div>
+<div class="block-content en-text">
+           Built regular international academic exchange mechanisms centered on therapeutic areas, alongside a cross-border MDT collaboration network covering China, US, Japan, South Korea and UK, with a repository of over 200 authoritative global clinical KOLs. Multidisciplinary academic summits reached over 40,000 industry specialists online. Accelerated deployment of precision imaging innovations to provincial & municipal hospitals nationwide, cutting clinical rollout cycle by 40%. Systematically aggregated and archived evidence-based medical data, continuously delivering standardized evidence datasets to provide high-quality authoritative support for intelligent medical model training and clinical algorithm iteration.
+</div>
+</div>
+<div class="section-block">
+<h2 class="block-title zh-text">四、数字化与前沿平台技术创新，驱动政策联动型医疗研发落地</h2>
+<h2 class="block-title en-text">IV. Digital & Cutting-Edge Platform Tech Innovation for Policy-Aligned Medical R&D Deployment</h2>
+<div class="block-content zh-text">
+           依托大数据、人工智能、类器官模型双技术赛道开展源头医学创新，助力类器官药物肝肾毒性早期检测研发平台，为药物、智能诊疗设备前置验证提供技术支撑。主导多项政策联动型数字化医疗创新项目，落地省市级临床决策支持系统（CDSS）试点、AI疾病识别模型、智慧医疗数字服务平台等前瞻研发项目；联动国家级媒体搭建学术科普共建渠道，形成“智能诊疗工具+标准化培训体系”完整落地方案，优化临床诊疗流程，同步提升跨区域临床科研与诊疗能力。
+</div>
+<div class="block-content en-text">
+           Pioneered upstream medical innovation across big data, artificial intelligence and organoid model technology tracks. Developed organoid-based early liver & renal toxicity testing platforms to provide pre-validation technical support for pharmaceuticals and intelligent diagnostic devices. Led multiple policy-linked digital medical innovation projects including provincial & municipal CDSS pilots, AI disease recognition models and smart medical digital service platforms. Partnered with national-level media to build academic science communication channels, delivering a full deployment framework of "intelligent diagnostic tools + standardized training system" to streamline clinical workflows and upgrade cross-regional clinical research & care capacity simultaneously.
+</div>
 </div>
 </section>
-<!-- 职业履历 -->
-<section id="profile" class="container section">
+<!-- 职业履历（修正辉瑞岗位为医学事务） -->
+<section id="profile" class="container section dark-wrap">
 <h2 class="sec-title zh-text">职业履历</h2>
 <h2 class="sec-title en-text">Career Profile</h2>
 <div class="timeline-box">
 <div class="timeline-item">
 <div class="time">Current</div>
 <div class="content">
-<h3 class="zh-text">大中华区医疗总监｜GE PDX Medical</h3>
-<h3 class="en-text">Medical Director, Greater China｜GE PDX Medical</h3>
-<p class="zh-text">主导全球疾病医学战略布局，覆盖临床三期至指南落地全链路。搭建亚太肝胆肿瘤学术体系、MDT多中心诊疗平台、院长高峰论坛。落地AI智慧医院医学体系与标准化临床质控，构建完整亚太学术影响力。</p>
-<p class="en-text">Lead global medical strategy from Phase III clinical development to guideline adoption. Build APAC hepatobiliary oncology academic ecosystem, cross-center MDT platform & hospital summit system. Establish AI hospital medical system and standardized clinical quality control.</p>
+<h3 class="zh-text">大中华区医学研发总监｜通用医疗生命科学事业部</h3>
+<h3 class="en-text">Medical R&D Director, Greater China｜GE Healthcare Life Sciences</h3>
+<p class="zh-text">统筹全球新药临床研发、AI医疗影像转化、跨国学术资源搭建、数字化医疗创新四大业务板块，完整落地图片所示全链条医学创新业务体系。</p>
+<p class="en-text">Governed four core business divisions: global clinical drug R&D, AI medical imaging commercialization, cross-border academic network construction and digital medical innovation, fully delivering the end-to-end medical innovation framework detailed above.</p>
 </div>
 </div>
 <div class="timeline-item">
 <div class="time">2021 — 2024</div>
 <div class="content">
-<h3 class="zh-text">全球医学负责人｜GE PDX Medical</h3>
-<h3 class="en-text">Global Medical Lead｜GE PDX Medical</h3>
-<p class="zh-text">统筹全球医学事务与中国临床落地，创办首届国际肝癌诊疗峰会，推动中国本土临床证据进入全球指南与国际学术体系。</p>
-<p class="en-text">Align global medical strategy with local China clinical practice. Found the First International Liver Cancer Summit, promote Chinese clinical evidence into global guidelines and international academic systems.</p>
+<h3 class="zh-text">全球Sonazoid医学负责人｜通用医疗生命科学事业部</h3>
+<h3 class="en-text">Global Sonazoid Medical Lead｜GE Healthcare Life Sciences</h3>
+<p class="zh-text">统筹全球超声造影产品医学策略、国际多中心临床研究、全球专家委员会运营，搭建跨国MDT学术协作网络。</p>
+<p class="en-text">Overseen global medical strategy for ultrasound contrast Sonazoid, international multi-center trials and global expert committee operation; established cross-border MDT academic collaboration network.</p>
 </div>
 </div>
 <div class="timeline-item">
@@ -362,119 +404,93 @@
 </div>
 </section>
 <!-- 专业能力 -->
-<section id="expertise" class="container section dark-wrap">
+<section id="expertise" class="container section">
 <h2 class="sec-title zh-text">专业核心能力</h2>
 <h2 class="sec-title en-text">Core Expertise</h2>
 <div class="tech-grid">
 <div class="tech-card">
-<h4 class="zh-text">全球医学战略搭建</h4>
-<h4 class="en-text">Global Medical Strategy</h4>
-<p class="zh-text">跨国药企医学路线图、疾病领域布局、全球多区域学术生态建设</p>
-<p class="en-text">Global medical roadmap, disease franchise layout, cross-region academic ecosystem building</p>
+<h4 class="zh-text">全球临床新药全周期研发</h4>
+<h4 class="en-text">Full-Lifecycle Global Clinical Drug R&D</h4>
+<p class="zh-text">III/IV期全球多中心试验、IIT/IST校企联合研究、HEOR&医保准入、真实世界RWE证据开发</p>
+<p class="en-text">Global Phase III/IV multi-center trials, academic IIT/IST collaboration, HEOR & market access, real-world evidence development</p>
 </div>
 <div class="tech-card">
-<h4 class="zh-text">临床研发与指南</h4>
-<h4 class="en-text">Clinical R&D & Guidelines</h4>
-<p class="zh-text">III/IV期临床项目、真实世界研究、专家共识、诊疗指南撰写与发布</p>
-<p class="en-text">Phase III/IV trials, RWE study design, expert consensus & clinical guideline publication</p>
+<h4 class="zh-text">AI医疗影像产业化转化</h4>
+<h4 class="en-text">AI Medical Imaging Industrialization</h4>
+<p class="zh-text">精准超声造影、AI辅助诊断、硬件-算法-临床一体化研发、临床前项目孵化转化通道搭建</p>
+<p class="en-text">Precision ultrasound contrast, AI-aided diagnosis, integrated hardware-algorithm-clinic R&D, preclinical project incubation pipeline building</p>
 </div>
 <div class="tech-card">
-<h4 class="zh-text">卫生经济学 & 医保准入</h4>
-<h4 class="en-text">HEOR & Market Access</h4>
-<p class="zh-text">药物价值体系、卫生技术评估、医保谈判证据、药物经济学建模</p>
-<p class="en-text">Medical value storytelling, HTA evaluation, NRDL negotiation evidence, pharmacoeconomic modeling</p>
+<h4 class="zh-text">跨国循证学术资源运营</h4>
+<h4 class="en-text">Cross-Border Evidence-Based Academic Governance</h4>
+<p class="zh-text">中美日韩英MDT协作网络、4万+行业峰会运营、200+全球权威KOL资源库、临床落地周期优化</p>
+<p class="en-text">China-US-Japan-Korea-UK MDT network, 40,000+ attendee academic summits, 200+ global top KOL repository, clinical deployment cycle optimization</p>
 </div>
 <div class="tech-card">
-<h4 class="zh-text">国际学术会议运营</h4>
-<h4 class="en-text">Global Academic Summit</h4>
-<p class="zh-text">中美欧日韩多国家MDT峰会、国际论坛、专家智库体系搭建</p>
-<p class="en-text">Multinational MDT summits, international academic forums & KOL ecosystem development</p>
-</div>
-<div class="tech-card">
-<h4 class="zh-text">AI智慧医疗落地</h4>
-<h4 class="en-text">AI & Smart Hospital</h4>
-<p class="zh-text">AI医学影像、智能诊疗路径、CDSS系统落地、智慧医院体系建设</p>
-<p class="en-text">AI medical imaging, intelligent clinical pathway, CDSS implementation & smart hospital construction</p>
-</div>
-<div class="tech-card">
-<h4 class="zh-text">高端医疗资源管理</h4>
-<h4 class="en-text">KOL & Hospital Management</h4>
-<p class="zh-text">全国6000+KOL维护、三甲医院项目管理、跨区域医学培训体系</p>
-<p class="en-text">Manage 6000+ nationwide KOLs, tertiary hospital cooperation & cross-region medical training system</p>
+<h4 class="zh-text">数字化&类器官前沿医疗创新</h4>
+<h4 class="en-text">Digital & Organoid Cutting-Edge Medical Innovation</h4>
+<p class="zh-text">CDSS临床决策系统、AI疾病识别、类器官肝肾毒理平台、国家级媒体学术科普渠道共建</p>
+<p class="en-text">CDSS clinical decision support system, AI disease recognition, organoid liver/renal toxicity testing platform, national media academic science communication cooperation</p>
 </div>
 </div>
 </section>
 <!-- 核心成果 -->
-<section id="achievement" class="container section">
+<section id="achievement" class="container section dark-wrap">
 <h2 class="sec-title zh-text">核心落地成果</h2>
 <h2 class="sec-title en-text">Key Achievements</h2>
 <ul class="result-list">
-<li class="zh-text">搭建完整亚太肝胆肿瘤学术生态，覆盖6000+领域KOL，主导发布4项亚太官方临床诊疗指南</li>
-<li class="en-text">Built complete APAC hepatobiliary oncology academic ecosystem covering 6000+ KOLs, led 4 official APAC clinical guideline publications</li>
-<li class="zh-text">落地全国33家三甲医院智慧医疗创新体系，打造国内首个CDSS区域试点项目</li>
-<li class="en-text">Launched smart medical innovation system across 33 tertiary hospitals and built China’s first regional CDSS pilot project</li>
-<li class="zh-text">创办首届国际肝癌诊疗峰会，打通中国临床证据国际化通路</li>
-<li class="en-text">Founded the First International Liver Cancer Summit, enabling globalization of Chinese clinical evidence</li>
-<li class="zh-text">主导20余项全球多中心III/IV期临床研究，覆盖肿瘤、心血管、消化、骨质疏松多领域</li>
-<li class="en-text">Led more than 20 global multi-center Phase III/IV clinical trials covering oncology, cardiology, gastroenterology and osteoporosis</li>
-<li class="zh-text">建立中日双中心国际医师培训体系，推动跨境医疗学术交流常态化</li>
-<li class="en-text">Established China-Japan dual-center international physician training system to promote cross-border academic exchange</li>
+<li class="zh-text">统筹20余项全球多中心III-IV期临床试验，与30+全球顶尖高校医疗机构建立IIT/IST跨境科研合作体系</li>
+<li class="en-text">Governed over 20 global multi-center Phase III-IV clinical trials; built cross-border IIT/IST research partnerships with 30+ world-leading universities & medical institutes</li>
+<li class="zh-text">打通AI影像硬件、算法、临床验证一体化研发链路，推动20余项临床前创新项目进入临床验证，落地40余场跨学科人才培训</li>
+<li class="en-text">Built integrated AI imaging R&D pipeline covering hardware, algorithm and clinical validation; advanced over 20 preclinical projects to clinical stage and delivered 40+ interdisciplinary talent training sessions</li>
+<li class="zh-text">搭建覆盖中美日韩英跨国MDT学术网络，储备200余位全球权威临床KOL，学术峰会线上覆盖4万余名行业专家，新技术落地周期缩短40%</li>
+<li class="en-text">Established cross-border MDT network across 5 nations with 200+ top clinical KOLs repository; summits reached 40,000+ specialists online, cutting clinical rollout timeline by 40%</li>
+<li class="zh-text">打造类器官肝肾毒性早期检测研发平台，落地省市级CDSS、AI疾病识别、智慧医疗数字平台多项政策联动数字化医疗试点项目</li>
+<li class="en-text">Developed organoid liver & renal toxicity early testing platform; delivered multiple policy-aligned digital medical pilots including municipal CDSS, AI disease recognition and smart medical digital service platforms</li>
 <li class="zh-text">11个月极速完成60家三甲医院大型国家级医学项目全周期交付</li>
 <li class="en-text">Delivered full-cycle national medical project covering 60 tertiary hospitals within 11 months</li>
 </ul>
 </section>
-<!-- 教育与学术资质 -->
-<section id="edu" class="container section dark-wrap">
+<!-- 教育与学术资质（完全同步图片） -->
+<section id="edu" class="container section">
 <h2 class="sec-title zh-text">教育背景 & 国际学术资质</h2>
 <h2 class="sec-title en-text">Education & Academic Fellowship</h2>
 <div class="tech-grid">
 <div class="tech-card">
-<h4 class="zh-text">国际院士与研究员资质</h4>
-<h4 class="en-text">International Fellow Membership</h4>
-<p class="zh-text">英国皇家医学会院士、美国AI研究院高级研究员、亚太肝病学会会员</p>
-<p class="en-text">Fellow of Royal Society of Medicine, Senior Researcher of US AI Institute, APASL Member</p>
+<h4 class="zh-text">国际院士与高级研究员资质</h4>
+<h4 class="en-text">International Fellow & Senior Research Credentials</h4>
+<p class="zh-text">英国皇家医学会会士、美国国家人工智能科学院高级研究员、斯坦福医疗AI专业认证、中关村AI研究院医学研发中心荣誉主任</p>
+<p class="en-text">Fellow of Royal Society of Medicine, Senior Research Fellow National AI Academy USA, Stanford Medical AI Certified, Honorary Director Zhongguancun AI Institute Medical R&D Center</p>
 </div>
 <div class="tech-card">
-<h4 class="zh-text">海外博士后 & 访学</h4>
-<h4 class="en-text">Overseas Postdoc & Visiting Scholar</h4>
-<p class="zh-text">牛津大学博士后、日本近畿大学访问学者、莱斯特大学合作研究员、Nature大师班学员</p>
-<p class="en-text">University of Oxford Postdoc, Kinki University Visiting Scholar, University of Leicester Researcher, Nature Masterclass Trainee</p>
+<h4 class="zh-text">海外博士后 & 客座/访问学者</h4>
+<h4 class="en-text">Overseas Postdoc & Visiting Academic Roles</h4>
+<p class="zh-text">牛津大学博士后、英国莱斯特大学客座教授、日本近畿大学访问学者</p>
+<p class="en-text">Postdoc University of Oxford, Visiting Professor University of Leicester UK, Visiting Scholar Kindai University Japan</p>
 </div>
 <div class="tech-card">
-<h4 class="zh-text">博士学位</h4>
-<h4 class="en-text">Doctoral Degrees</h4>
-<p class="zh-text">医学博士、医疗管理博士、医工交叉研究方向</p>
-<p class="en-text">MD in Cardiovascular Medicine, PhD in Healthcare Management, Med-Engineering Interdisciplinary Research</p>
-</div>
-<div class="tech-card">
-<h4 class="zh-text">硕士学位</h4>
-<h4 class="en-text">Master Degrees</h4>
-<p class="zh-text">医学硕士（肝纤维化干细胞方向）、国际商务经济学双学位</p>
-<p class="en-text">MMed in Liver Fibrosis & Stem Cell, Double Master in International Business Economics</p>
-</div>
-<div class="tech-card">
-<h4 class="zh-text">本科学位</h4>
-<h4 class="en-text">Bachelor Degree</h4>
-<p class="zh-text">临床医学（国际双语项目）</p>
-<p class="en-text">Clinical Medicine (International Bilingual Program)</p>
+<h4 class="zh-text">双博士学位</h4>
+<h4 class="en-text">Dual Doctoral Degrees</h4>
+<p class="zh-text">医学博士、医疗管理学博士</p>
+<p class="en-text">Doctor of Medicine, Doctor of Healthcare Management</p>
 </div>
 </div>
 </section>
 <!-- 荣誉奖项 -->
-<section id="cert" class="container section">
+<section id="cert" class="container section dark-wrap">
 <h2 class="sec-title zh-text">专业认证 & 荣誉奖项</h2>
 <h2 class="sec-title en-text">Certifications & Honors</h2>
 <ul class="result-list">
-<li class="zh-text">专业资质：ICH-GCP、斯坦福AI医疗认证、耶鲁心理学认证、BMJ医学编辑认证、EMKT高级领导力认证</li>
-<li class="en-text">Certifications: ICH-GCP, Stanford AI Medicine Certification, Yale Psychology Certification, BMJ Editorial Training, EMKT Leadership Certification</li>
-<li class="zh-text">GE集团荣誉：总裁奖、四次总经理奖、21项全球及区域专项成就奖</li>
-<li class="en-text">GE Honors: President’s Award, 4× General Manager Awards, 21 Global & Regional Excellence Awards</li>
-<li class="zh-text">MSD集团荣誉：临床研究杰出贡献奖、中国总部优秀团队突出贡献奖</li>
+<li class="zh-text">专业资质：斯坦福医疗人工智能认证、ICH-GCP临床研究资质</li>
+<li class="en-text">Certifications: Stanford Medical AI Specialist Certificate, ICH-GCP Clinical Research Qualification</li>
+<li class="zh-text">通用医疗集团荣誉：总裁奖、四次总经理奖、21项全球及区域专项成就奖</li>
+<li class="en-text">GE Healthcare Honors: President’s Award, 4× General Manager Awards, 21 Global & Regional Excellence Awards</li>
+<li class="zh-text">默沙东集团荣誉：临床研究杰出贡献奖、中国总部优秀团队突出贡献奖</li>
 <li class="en-text">MSD Honors: Outstanding Clinical Research Contribution Award, China Headquarters Excellent Team Award</li>
 </ul>
 </section>
-<!-- 联系方式 -->
-<section id="contact" class="container section dark-wrap">
+<!-- 联系方式（更新邮箱ceciliabian06@gmail.com） -->
+<section id="contact" class="container section">
 <h2 class="sec-title zh-text">学术交流 & 商务合作</h2>
 <h2 class="sec-title en-text">Academic & Business Contact</h2>
 <div class="contact-text">
@@ -482,20 +498,20 @@
 <i class="fa-solid fa-envelope"></i>
 <span class="zh-text">商务邮箱：</span>
 <span class="en-text">Email：</span>
-           bianxuan.med@outlook.com
+           ceciliabian06@gmail.com
 </p>
 <p><i class="fa-brands fa-github"></i> GitHub：github.com/bianxuan1015</p>
 <p>
 <i class="fa-solid fa-building"></i>
-<span class="zh-text">合作方向：全球医学战略咨询、临床研发规划、国际学术会议共建、智慧医院落地、医保卫生经济学搭建</span>
-<span class="en-text">Business Fields: Global medical strategy consulting, clinical R&D planning, international academic cooperation, smart hospital implementation, HEOR & market access system building</span>
+<span class="zh-text">合作方向：全球临床新药研发、AI医疗影像产业化、跨国循证学术平台搭建、数字化医疗政策创新落地、类器官前沿医学研发合作</span>
+<span class="en-text">Business Fields: Global Clinical New Drug R&D, AI Medical Imaging Industrialization, Cross-Border Evidence-Based Academic Platform Construction, Policy-Aligned Digital Medical Deployment, Organoid Cutting-Edge Medical R&D Cooperation</span>
 </p>
 </div>
 </section>
 <!-- 页脚 -->
 <footer class="footer">
-<p class="zh-text">© 2026 边璇｜医学总监 个人学术官网 保留所有权利</p>
-<p class="en-text">© 2026 BIAN XUAN | Global Medical Director Official Portfolio | All Rights Reserved</p>
+<p class="zh-text">© 2026 边璇｜医学研发总监 个人学术官网 保留所有权利</p>
+<p class="en-text">© 2026 Cecilia Bian | Global Medical R&D Director Official Portfolio | All Rights Reserved</p>
 </footer>
 <!-- 双语切换脚本 -->
 <script>
