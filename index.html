@@ -3,585 +3,134 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bian Xuan | Global Medical R&D Director</title>
-<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<title>Bian Xuan | Global Medical R&D</title>
 <style>
        * {
            margin: 0;
            padding: 0;
            box-sizing: border-box;
-           font-family: -apple-system, BlinkMacSystemFont, "Microsoft Yahei", sans-serif;
+           font-family: "Microsoft Yahei", sans-serif;
        }
        body {
-           background-color: #000000;
-           color: #f5f5f7;
-           line-height: 1.7;
-           max-width: 100%;
-           overflow-x: hidden;
+           background: linear-gradient(135deg, #0a2c2c, #0f3838);
+           color: #ffffff;
+           min-height: 100vh;
        }
-       a {
-           text-decoration: none;
-           color: inherit;
-       }
-       .en-text {
-           display: none;
-       }
-       /* 语言切换 */
-       .lang-switch {
-           position: fixed;
-           top: 32px;
-           right: 48px;
-           z-index: 9999;
+       /* 顶部导航栏 */
+       header {
+           width: 100%;
+           padding: 24px 40px;
            display: flex;
-           gap: 10px;
+           justify-content: space-between;
+           align-items: center;
+           position: fixed;
+           top: 0;
+           left: 0;
+           z-index: 99;
+       }
+       .logo-header {
+           font-size: 34px;
+           color: #f9d14a;
+           font-weight: bold;
+       }
+       .nav-list {
+           display: flex;
+           gap: 32px;
+           align-items: center;
+       }
+       .nav-list a {
+           color: #fff;
+           text-decoration: none;
+           font-size: 16px;
+       }
+       /* 右上角按钮样式缩小防遮挡 */
+       .lang-btn, .contact-btn {
+           padding: 5px 11px !important;
+           font-size: 13px !important;
+           margin-left: 8px !important;
+           border-radius: 20px;
+           border: 1px solid #f9d14a;
+           color: #f9d14a;
+           background: transparent;
+           cursor: pointer;
        }
        .lang-btn {
-           background: rgba(255,255,255,0.05);
-           border: 1px solid #d4af3770;
-           color: #d4af37;
-           padding: 8px 20px;
-           border-radius: 999px;
-           cursor: pointer;
-           font-size: 14px;
-           transition: all 0.3s cubic-bezier(0.2,0,0.2,1);
-       }
-       .lang-btn.active {
-           background-color: #d4af37;
+           background: #f9d14a;
            color: #000;
-           border-color: #d4af37;
        }
-       /* 导航栏 Apple 极简风格 */
-       .navbar {
-           width: 100%;
-           padding: 24px 60px;
-           border-bottom: 1px solid rgba(255,255,255,0.08);
-           display: flex;
-           align-items: center;
-           justify-content: space-between;
-           position: sticky;
-           top: 0;
-           background: #000;
-           z-index: 998;
-           backdrop-filter: blur(12px);
+       /* 首页主体区域，下移避开导航遮挡 */
+       .hero-section {
+           padding: 0 40px;
+           padding-top: 160px;
+           max-width: 1200px;
        }
-       .brand {
-           font-size: 28px;
-           color: #d4af37;
-           font-weight: 500;
-           letter-spacing: 1px;
-       }
-       .nav-menu {
-           display: flex;
-           gap: 36px;
-           flex-wrap: nowrap;
-       }
-       .nav-menu a {
-           font-size: 16px;
-           color: #a8a8b3;
-           transition: 0.25s ease;
-           white-space: nowrap;
-           font-weight: 400;
-       }
-       .nav-menu a:hover {
+       .hero-section h1 {
+           font-size: 54px;
+           margin-bottom: 18px;
            color: #fff;
        }
-       /* ========== 首页 Hero 苹果官网极简布局 ========== */
-       .hero {
-           min-height: 85vh;
-           padding: 90px 60px;
-           max-width: 1440px;
-           margin: 0 auto;
-           display: flex;
-           align-items: center;
-           gap: 80px;
-       }
-       .hero-avatar-box {
-           flex-shrink: 0;
-       }
-       .hero-avatar {
-           width: 380px;
-           height: 480px;
-           object-fit: cover;
-           border-radius: 20px;
-           border: 2px solid rgba(212,175,55,0.3);
-           box-shadow: 0 0 60px rgba(212,175,55,0.12);
-           transition: transform 0.4s ease;
-       }
-       .hero-avatar:hover {
-           transform: scale(1.02);
-       }
-       .hero-text-wrap {
-           flex: 1;
-           display: flex;
-           flex-direction: column;
-           gap: 32px;
-       }
-       .hero-title-main {
-           font-size: 48px;
-           color: #fff;
-           letter-spacing: 0.5px;
-           font-weight: 600;
-       }
-       .hero-subtitle {
+       .title-desc {
            font-size: 22px;
-           color: #d4af37;
-           font-weight: 400;
+           color: #f9d14a;
+           margin-bottom: 42px;
        }
-       .hero-tag-wrap {
+       .tag-row {
            display: flex;
            flex-wrap: wrap;
-           gap: 12px;
-           margin-top: 6px;
+           gap: 16px;
+           margin-bottom: 22px;
        }
-       .hero-tag {
-           border: 1px solid rgba(212,175,55,0.25);
-           color: #d4af37;
-           padding: 7px 18px;
+       .tag {
+           border: 1px solid #f9d14a;
+           color: #f9d14a;
+           padding: 9px 22px;
            border-radius: 999px;
-           font-size: 15px;
-           background: rgba(212,175,55,0.04);
-       }
-       .hero-brief {
-           max-width: 860px;
-           font-size: 19px;
-           color: #a8a8b3;
-           line-height: 1.8;
-       }
-       /* 通用区块 Apple 轻量化卡片 */
-       .container {
-           max-width: 1440px;
-           margin: 0 auto;
-           padding: 80px 60px;
-       }
-       .dark-wrap {
-           background-color: #050507;
-       }
-       .sec-title {
-           font-size: 36px;
-           color: #fff;
-           margin-bottom: 50px;
-           font-weight: 500;
-           letter-spacing: 0.5px;
-       }
-       /* 时间轴 极简高级风 */
-       .timeline-box {
-           padding-left: 12px;
-       }
-       .timeline-item {
-           border-left: 2px solid rgba(212,175,55,0.4);
-           padding-left: 36px;
-           margin-bottom: 56px;
-           position: relative;
-           max-width: 1180px;
-       }
-       .timeline-item::before {
-           content: "";
-           width: 16px;
-           height: 16px;
-           background: #d4af37;
-           border-radius: 50%;
-           position: absolute;
-           left: -9px;
-           top: 4px;
-       }
-       .time {
-           color: #d4af37;
-           font-weight: 500;
-           font-size: 18px;
-           margin-bottom: 10px;
-       }
-       .timeline-item h3 {
-           font-size: 24px;
-           margin-bottom: 14px;
-           color: #fff;
-           font-weight: 500;
-       }
-       .timeline-item p {
-           color: #c0c0cf;
-           font-size: 17px;
-           line-height: 1.8;
-       }
-       /* 能力网格卡片 */
-       .tech-grid {
-           display: grid;
-           grid-template-columns: repeat(4, 1fr);
-           gap: 32px;
-       }
-       .tech-card {
-           background: rgba(255,255,255,0.03);
-           border: 1px solid rgba(255,255,255,0.08);
-           padding: 36px 30px;
-           border-radius: 16px;
-           transition: all 0.3s ease;
-           min-height: 280px;
-       }
-       .tech-card:hover {
-           border-color: rgba(212,175,55,0.4);
-           background: rgba(212,175,55,0.03);
-           transform: translateY(-4px);
-       }
-       .tech-card h4 {
-           color: #d4af37;
-           font-size: 22px;
-           margin-bottom: 16px;
-           font-weight: 500;
-       }
-       .tech-card p {
-           color: #a8a8b3;
            font-size: 16px;
        }
-       /* 成果列表 */
-       .result-list li {
-           list-style: none;
-           padding: 20px 0;
-           border-bottom: 1px solid rgba(255,255,255,0.08);
+       .intro-text {
+           margin-top: 44px;
            font-size: 18px;
-           color: #e0e0eb;
-           max-width: 1180px;
-       }
-       /* 联系区域 */
-       .contact-text p {
-           font-size: 20px;
-           margin: 28px 0;
-           color: #d0d0e0;
-           max-width: 1180px;
-       }
-       .contact-text i {
-           color: #d4af37;
-           margin-right: 16px;
-           width: 28px;
-       }
-       /* 页脚 */
-       .footer {
-           padding: 50px 20px;
-           text-align: center;
-           border-top: 1px solid rgba(255,255,255,0.08);
-           color: #6e6e85;
-           font-size: 16px;
-       }
-       /* 平板适配 */
-       @media(max-width:1200px) {
-           .tech-grid {
-               grid-template-columns: repeat(2, 1fr);
-           }
-           .nav-menu {
-               gap: 24px;
-           }
-           .navbar {
-               padding: 22px 40px;
-           }
-           .hero-avatar {
-               width: 320px;
-               height: 400px;
-           }
-           .hero {
-               gap: 50px;
-           }
-       }
-       /* 移动端苹果简约适配 */
-       @media(max-width:768px) {
-           .navbar {
-               flex-direction: column;
-               gap: 24px;
-               text-align: center;
-               padding: 20px 16px;
-           }
-           .nav-menu {
-               flex-wrap: wrap;
-               justify-content: center;
-               gap: 12px;
-           }
-           .nav-menu a {
-               font-size: 14px;
-           }
-           .hero-title-main {
-               font-size: 32px;
-           }
-           .lang-switch {
-               right: 16px;
-               top: 20px;
-           }
-           .tech-grid {
-               grid-template-columns: 1fr;
-           }
-           .container, .hero {
-               padding: 60px 24px;
-           }
-           /* 手机垂直排版，图片置顶居中 */
-           .hero {
-               flex-direction: column;
-               text-align: center;
-               gap: 40px;
-               min-height: auto;
-           }
-           .hero-avatar-box {
-               width: 100%;
-               display: flex;
-               justify-content: center;
-           }
-           .hero-avatar {
-               width: 280px;
-               height: 360px;
-           }
-           .hero-tag-wrap {
-               justify-content: center;
-           }
-           .timeline-item {
-               padding-left: 24px;
-           }
+           line-height: 1.85;
+           color: #eeeeee;
+           max-width: 920px;
        }
 </style>
 </head>
 <body>
-<!-- 语言切换 -->
-<div class="lang-switch">
-<button class="lang-btn active" onclick="switchLang('zh')">中文</button>
-<button class="lang-btn" onclick="switchLang('en')">EN</button>
+<!-- 顶部导航 -->
+<header>
+<div class="logo-header">BIANXUAN.MED</div>
+<div class="nav-list">
+<a href="#">首页</a>
+<a href="#">职业履历</a>
+<a href="#">专业能力</a>
+<a href="#">核心成果</a>
+<a href="#">教育资质</a>
+<button class="lang-btn">中文</button>
+<button class="contact-btn">商务联络</button>
 </div>
-<!-- 导航栏 -->
-<nav class="navbar">
-<div class="brand">BIANXUAN.MED</div>
-<div class="nav-menu">
-<a href="#home" class="zh-text">首页</a>
-<a href="#home" class="en-text">Home</a>
-<a href="#profile" class="zh-text">职业履历</a>
-<a href="#profile" class="en-text">Career</a>
-<a href="#expertise" class="zh-text">专业能力</a>
-<a href="#expertise" class="en-text">Expertise</a>
-<a href="#achievement" class="zh-text">核心成果</a>
-<a href="#achievement" class="en-text">Achievements</a>
-<a href="#edu" class="zh-text">教育资质</a>
-<a href="#edu" class="en-text">Education</a>
-<a href="#cert" class="zh-text">荣誉认证</a>
-<a href="#cert" class="en-text">Awards</a>
-<a href="#contact" class="zh-text">商务联络</a>
-<a href="#contact" class="en-text">Contact</a>
+</header>
+<!-- 首页主内容（已移除证件照全部代码） -->
+<section class="hero-section">
+<h1>学术顾问 边璇</h1>
+<p class="title-desc">通用医疗生命科学事业部大中华区 医学研发总监</p>
+<div class="tag-row">
+<span class="tag">医学&管理双博士</span>
+<span class="tag">牛津大学博士后</span>
+<span class="tag">英国皇家医学会会士</span>
+<span class="tag">AI医疗转化专家</span>
+<span class="tag">全球临床研发负责人</span>
 </div>
-</nav>
-<!-- 苹果风首页 Hero 证件照区域 -->
-<section id="home" class="hero">
-<div class="hero-avatar-box">
-<img class="hero-avatar" src="cecilia-bian.jpg" alt="边璇 证件照">
+<div class="tag-row">
+<span class="tag">Dual Doctorates</span>
+<span class="tag">Oxford Postdoc</span>
+<span class="tag">FRSM</span>
+<span class="tag">Medical AI Expert</span>
+<span class="tag">Global Clinical Lead</span>
 </div>
-<div class="hero-text-wrap">
-<h1 class="hero-title-main zh-text">学术顾问 边璇</h1>
-<h1 class="hero-title-main en-text">Academic Advisor Cecilia Bian</h1>
-<p class="hero-subtitle zh-text">通用医疗生命科学事业部大中华区 医学研发总监</p>
-<p class="hero-subtitle en-text">Medical R&D Director, Greater China, GE Healthcare Life Sciences</p>
-<div class="hero-tag-wrap zh-text">
-<span class="hero-tag">医学&管理双博士</span>
-<span class="hero-tag">牛津大学博士后</span>
-<span class="hero-tag">英国皇家医学会会士</span>
-<span class="hero-tag">AI医疗转化专家</span>
-<span class="hero-tag">全球临床研发负责人</span>
-</div>
-<div class="hero-tag-wrap en-text">
-<span class="hero-tag">Dual Doctorates</span>
-<span class="hero-tag">Oxford Postdoc</span>
-<span class="hero-tag">FRSM</span>
-<span class="hero-tag">Medical AI Expert</span>
-<span class="hero-tag">Global Clinical Lead</span>
-</div>
-<div class="hero-brief zh-text">
-           十余年跨国药企、医疗设备龙头医学事务全链路管理经验，深耕全球新药临床研发、AI医疗影像产业化、跨国学术资源运营、数字化医疗创新四大赛道，完整履历、项目成果与学术资质详见下方对应板块。
-</div>
-<div class="hero-brief en-text">
-           Over 10 years end-to-end medical affairs management experience in multinational pharmaceutical and top medical device enterprises, focusing on global clinical R&D, AI medical imaging industrialization, cross-border academic operation & digital medical innovation. Full career track, project achievements and academic credentials are detailed in corresponding sections below.
-</div>
+<div class="intro-text">
+<p>十余年跨国药企、医疗设备龙头医学事务全链路管理经验，深耕全球新药临床研发、AI医疗影像产业化、跨国学术资源运营、数字化医疗创新四大赛道，完整履历、项目成果与学术资质详见下方对应板块。</p>
 </div>
 </section>
-<!-- 【重点重构】职业履历时间轴 严格按PPT素材排序，统一Sonazoid，保留Vision Study英文 -->
-<section id="profile" class="container dark-wrap">
-<h2 class="sec-title zh-text">职业履历</h2>
-<h2 class="sec-title en-text">Career Profile</h2>
-<div class="timeline-box">
-<!-- 1. 当前岗位：大中华区医学研发总监 GE PDX Medical -->
-<div class="timeline-item">
-<div class="time">Current</div>
-<div class="content">
-<h3 class="zh-text">大中华区医学研发总监｜GE PDX Medical 通用医疗生命科学事业部</h3>
-<h3 class="en-text">Greater China Medical Director｜GE PDX Medical, GE Healthcare Life Sciences</h3>
-<p class="zh-text">以疾病为核心搭建全球医学策略全周期路线图（III期至指南纳入全流程），主导指南共识开发、跨国MDT网络拓展、内部人才能力培训、中日双中心培训项目；完成多项HEOR、真实世界RWE研究，为医保准入、新药上市、价格维护提供完整循证证据；搭建总裁论坛学术平台，优化临床质控标准化体系，落地智慧医院、AI医疗一体化解决方案；带领精简团队实现人均高效产出，强化Sonazoid在肝胆肿瘤、CEUS领域全球学术领导力；统筹覆盖多瘤种、心脑血管、神经、肝病20余项全球多中心III-IV期临床试验，主导完整试验方案设计、安全与数据管理，参与4项亚太肝癌诊疗指南共识制定，落地10余项国家级区域医学项目，搭建标准化临床证据体系。</p>
-<p class="en-text">Built disease-centered full-lifecycle global medical strategy roadmap (Phase III to guideline inclusion); led guideline consensus development, cross-border MDT expansion, internal capability training, China-Japan dual-center training programs. Completed multiple HERO & RWE studies to deliver evidence for NRDL reimbursement, new product launch & price maintenance. Established president academic forum platform, standardized clinical QC workflows, deployed smart hospital & AI integrated medical solutions. Achieved outstanding per capita productivity with lean team, strengthened Sonazoid’s global academic leadership in hepatobiliary oncology & CEUS. Governed over 20 global multi-center Phase III-IV trials covering oncology, cardiovascular, neurology, hepatology, oversaw full protocol design, safety & data management, contributed to 4 key APAC HCC guidelines, delivered 10+ national/regional medical projects & standardized clinical evidence framework.</p>
-</div>
-</div>
-<!-- 2. 2021-2024 Sonazoid全球医学负责人（统一名称，不使用SNZ缩写） -->
-<div class="timeline-item">
-<div class="time">2021 — 2024</div>
-<div class="content">
-<h3 class="zh-text">Sonazoid 全球医学负责人｜GE PDX Medical</h3>
-<h3 class="en-text">Global Sonazoid Medical Lead｜GE PDX Medical</h3>
-<p class="zh-text">将中国临床实践融入全球医学顶层策略，搭建国际化学术传播平台，通过首届国际肝脏超声诊断与治疗峰会传递Sonazoid临床价值；把本土循证证据转化为全球监管与指南影响力，输出可规模化复制的中国成熟实践方案，驱动全球医学业务转型；搭建覆盖中美日韩英跨国MDT国际学术协作网络，储备200余位海内外权威临床KOL资源库，举办300余场跨区域专家会议，45项行业奖项；发起多国国际MDT学术峰会，线上覆盖6000余名临床专家，构建完整亚太学术生态。</p>
-<p class="en-text">Integrated China clinical practice into global medical top-level strategy, built international academic communication platforms, communicated Sonazoid clinical value via the 1st International Liver Cancer Diagnosis & Treatment Summit; translated local real-world evidence into global regulatory & guideline influence, shared scalable replicable China best practices to drive worldwide medical transformation. Established cross-border MDT network across China, US, UK, Japan, Korea with repository of 200+ top KOLs, hosted 300+ cross-regional expert meetings & won 45+ industry awards; initiated multi-country international MDT summits reaching over 6,000 specialists online, forming solid APAC academic ecosystem.</p>
-</div>
-</div>
-<!-- 3. Vision Study 项目负责人 保留英文不翻译 -->
-<div class="timeline-item">
-<div class="time">Pre-2021</div>
-<div class="content">
-<h3 class="zh-text">Vision Study 项目医学负责人｜GE PDX Medical</h3>
-<h3 class="en-text">Vision Study Project Medical Lead｜GE PDX Medical</h3>
-<p class="zh-text">统筹全国100余家三甲医院，筛选60家核心III级医院开展临床创新项目；完整管控项目从立项搭建、基线调研至交付收尾全流程，整体周期压缩至11个月极速闭环落地；搭建专家-医院-机构协同创新模式，赋能33家医院落地前沿创新诊疗技术；落地40余场跨学科专业人才培训，形成可复制的医学创新成果产业转化机制。</p>
-<p class="en-text">Managed 100+ national tertiary hospitals, selected 60 core tier-III centers for clinical innovation projects; full-cycle governance from project setup, baseline research to final delivery, completed full workflow within only 11 months. Built expert-hospital-institution collaborative innovation model, enabling 33 hospitals to launch cutting-edge innovative therapies. Delivered 40+ interdisciplinary talent training sessions & replicable medical innovation commercialization workflow.</p>
-</div>
-</div>
-<!-- 4. 辉瑞 Pfizer 医学事务岗 -->
-<div class="timeline-item">
-<div class="time">Early Career</div>
-<div class="content">
-<h3 class="zh-text">医学事务｜Pfizer Medical 辉瑞制药</h3>
-<h3 class="en-text">Medical Affairs｜Pfizer Medical</h3>
-<p class="zh-text">搭建卫生经济学HEOR、真实世界RWE完整循证证据体系，产出支撑新药上市、定价、医保谈判全链路医学价值材料；完善跨国药企医学事务标准化工作流程，落地政策导向型医疗创新项目，支撑国家医保目录申报、卫生技术评估、临床指南证据开发。</p>
-<p class="en-text">Built full HEOR & real-world evidence system, generated medical value documents for drug launch, pricing & NRDL negotiation, standardized pharmaceutical medical affairs workflow. Delivered policy-aligned medical innovation, supported NRDL applications, health technology assessment & evidence building for clinical guidelines.</p>
-</div>
-</div>
-<!-- 5. 默沙东 MSD 临床数据项目主管/导师 -->
-<div class="timeline-item">
-<div class="time">Early Career</div>
-<div class="content">
-<h3 class="zh-text">临床数据项目负责人&导师｜MSD R&D 默沙东研发中心</h3>
-<h3 class="en-text">Clinical Data Project Lead & Mentor｜MSD R&D</h3>
-<p class="zh-text">牵头全球多中心临床数据管理与临床试验全流程统筹，搭建企业标准化临床证据管理体系；主导多项全球IST研究者发起临床项目审核，获评集团临床研究杰出贡献奖项、中国总部优秀团队突出贡献奖。</p>
-<p class="en-text">Led global multi-center clinical data management & end-to-end trial governance, built corporate standardized clinical evidence framework; reviewed multiple global IST investigator-initiated trials, awarded Outstanding Clinical Research Contribution & China HQ Excellent Team Outstanding Performance Award.</p>
-</div>
-</div>
-</div>
-</section>
-<!-- 专业能力板块（匹配PPT四大核心赛道） -->
-<section id="expertise" class="container">
-<h2 class="sec-title zh-text">专业核心能力</h2>
-<h2 class="sec-title en-text">Core Expertise</h2>
-<div class="tech-grid">
-<div class="tech-card">
-<h4 class="zh-text">全链条国际临床新药研发操盘</h4>
-<h4 class="en-text">Full Lifecycle Global Clinical Drug R&D Governance</h4>
-<p class="zh-text">III/IV期全球多中心试验管理、校企IIT/IST跨境科研合作、卫生经济学HEOR、真实世界RWE、医保准入策略、多疾病赛道临床方案设计、亚太临床指南共识编撰</p>
-<p class="en-text">Global Phase III-IV trial management, cross-border academic IIT/IST collaboration, HEOR & market access, RWE research, multi-therapeutic clinical design, APAC clinical guideline consensus drafting</p>
-</div>
-<div class="tech-card">
-<h4 class="zh-text">AI医疗影像&Sonazoid超声造影产业化转化</h4>
-<h4 class="en-text">AI Medical Imaging & Sonazoid CEUS Industrialization</h4>
-<p class="zh-text">精准超声造影循证医学布局、AI辅助诊断临床验证、硬件-算法-医院落地一体化链路、临床前创新项目孵化、分层式国际化临床人才培养体系搭建</p>
-<p class="en-text">Evidence-based layout of precision ultrasound contrast, AI diagnostic clinical validation, integrated hardware-algorithm-hospital deployment pipeline, preclinical project incubation, tiered international clinical talent training system construction</p>
-</div>
-<div class="tech-card">
-<h4 class="zh-text">跨国循证学术资源统筹运营</h4>
-<h4 class="en-text">Cross-Border Evidence-Based Academic Ecosystem Operation</h4>
-<p class="zh-text">中美日韩英五国MDT协作网络搭建、全球权威KOL资源库运营、国际学术峰会策划落地、新技术医院落地周期优化、标准化循证医学证据沉淀体系搭建</p>
-<p class="en-text">5-nation cross-border MDT network construction, global top KOL repository management, international summit planning, hospital deployment cycle optimization, standardized evidence accumulation system</p>
-</div>
-<div class="tech-card">
-<h4 class="zh-text">数字化医疗与前沿类器官技术创新</h4>
-<h4 class="en-text">Digital Medical & Cutting-Edge Organoid Tech Innovation</h4>
-<p class="zh-text">CDSS临床决策系统试点、AI疾病识别模型研发、类器官肝肾毒理早期检测平台、政策联动智慧医疗项目、国家级媒体医学科普共建渠道运营</p>
-<p class="en-text">Municipal CDSS pilot deployment, AI disease recognition model R&D, organoid liver & renal toxicity early testing platform, policy-linked smart medical projects, national media medical science communication cooperation</p>
-</div>
-</div>
-</section>
-<!-- 核心成果 -->
-<section id="achievement" class="container dark-wrap">
-<h2 class="sec-title zh-text">核心落地成果</h2>
-<h2 class="sec-title en-text">Key Achievements</h2>
-<ul class="result-list zh-text">
-<li>统筹20余项覆盖肿瘤、心脑血管、神经、肝病的全球多中心III-IV期临床试验，参与制定4项亚太肝癌临床诊疗指南</li>
-<li>搭建与全球30+顶尖院校医疗机构IIT/IST跨境科研合作体系，完成10余项全球IST研究者发起临床项目审核</li>
-<li>Sonazoid全球医学运营期间搭建中美日韩英跨国MDT学术网络，储备200+海内外权威KOL，峰会线上覆盖6000+行业专家，新技术落地周期缩短40%</li>
-<li>打通AI超声造影硬件、算法、临床验证一体化研发链路，孵化20余项临床前创新项目进入临床阶段，落地40余场跨学科人才培训</li>
-<li>Vision Study项目统筹全国100余家三甲医院，筛选60家核心医院，11个月完成国家级大型临床创新项目全流程闭环交付</li>
-<li>打造类器官药物肝肾毒性早期检测研发平台，落地省市级CDSS、AI疾病识别、智慧医疗数字化政策试点项目</li>
-</ul>
-<ul class="result-list en-text">
-<li>Governed over 20 global multi-center Phase III-IV trials covering oncology, cardiovascular, neurology, hepatology; co-authored 4 key APAC HCC clinical guidelines</li>
-<li>Built cross-border IIT/IST research partnerships with 30+ world-leading medical institutes, completed reviews of over 10 global IST investigator-initiated trials</li>
-<li>During Global Sonazoid Medical Lead tenure, established cross-border MDT network across 5 nations with 200+ top KOLs, summits reached 6,000+ specialists online, cutting clinical rollout timeline by 40%</li>
-<li>Built integrated R&D pipeline for AI ultrasound contrast hardware, algorithm & clinical validation; advanced 20+ preclinical innovative projects to clinical stage and delivered 40+ interdisciplinary training sessions</li>
-<li>Led Vision Study covering 100+ national tertiary hospitals with 60 core tier-III centers selected; full-cycle national clinical innovation project delivered within only 11 months</li>
-<li>Developed organoid liver & renal toxicity early testing platform; delivered municipal CDSS, AI disease recognition & smart digital medical policy pilot programs</li>
-</ul>
-</section>
-<!-- 教育与国际学术资质（完全匹配PPT学历/院士资质） -->
-<section id="edu" class="container">
-<h2 class="sec-title zh-text">教育背景 & 国际学术资质</h2>
-<h2 class="sec-title en-text">Education & International Academic Fellowships</h2>
-<div class="tech-grid">
-<div class="tech-card">
-<h4 class="zh-text">国际院士与高级研究员资质</h4>
-<h4 class="en-text">International Fellow & Senior Research Credentials</h4>
-<p class="zh-text">英国皇家医学会会士；美国国家人工智能科学院高级研究员；亚太肝脏研究协会APASL会员；诺丁汉大学循证医学高质量RCT认证；中关村人工智能研究院医学研发中心荣誉主任</p>
-<p class="en-text">Fellow of Royal Society of Medicine (RSM); Senior Research Fellow, National AI Institute USA; Member of APASL; Certified High-Quality RCT Design by University of Nottingham; Honorary Director, Medical R&D Center, Zhongguancun AI Institute</p>
-</div>
-<div class="tech-card">
-<h4 class="zh-text">海外博士后 & 国际客座学术任职</h4>
-<h4 class="en-text">Overseas Postdoc & Visiting Academic Appointments</h4>
-<p class="zh-text">牛津大学博士后（类器官药物标准化质控研发方向）；英国莱斯特大学医学院生命科学部合作研究员；日本近畿大学消化疾病中心访问学者；《自然》大师课参与学员</p>
-<p class="en-text">Postdoctoral Researcher, University of Oxford (Organoid Drug Standard QC System); Collaborator, Division of Life Sciences, University of Leicester UK; Visiting Scholar, Digestive Center Kindai University Japan; Nature Master Class Participant</p>
-</div>
-<div class="tech-card">
-<h4 class="zh-text">完整硕博双学位体系</h4>
-<h4 class="en-text">Dual Doctorate & Multi-Master Degrees</h4>
-<p class="zh-text">医学博士（冠心病心血管风险评估方向）；管理学博士（医疗复合型人才培训体系创新方向）；医学硕士（间充质干细胞肝纤维化治疗）；国际商务双语硕士；临床医学本科（国际双语班）</p>
-<p class="en-text">Doctor of Medicine (Residual Cardiovascular Risk for CHD); Doctor of Management (Medical Talent Training System Innovation); Master of Medicine (Mesenchymal Stem Cell Therapy for Hepatic Fibrosis); Second Master of International Business (Bilingual); Bachelor of Clinical Medicine (International Bilingual Program)</p>
-</div>
-</div>
-</section>
-<!-- 专业认证与荣誉奖项 -->
-<section id="cert" class="container dark-wrap">
-<h2 class="sec-title zh-text">专业认证 & 行业荣誉奖项</h2>
-<h2 class="sec-title en-text">Professional Certifications & Honors</h2>
-<ul class="result-list zh-text">
-<li>权威资质：ICH-GCP NIDA认证；斯坦福AI医疗应用评估认证；耶鲁心理学导论认证；EMKT领导力认证；BMJ编辑研修班学员</li>
-<li>通用医疗集团荣誉：总裁奖、四次总经理奖、21项全球/区域专项成就奖，入选PDX-MARS全球商业领导力发展项目（唯一医疗事务部门入选成员）</li>
-<li>默沙东集团荣誉：临床研究杰出贡献奖、中国总部优秀团队突出贡献奖</li>
-</ul>
-<ul class="result-list en-text">
-<li>Certifications: ICH-GCP NIDA Certificate; Stanford AI Application Evaluation Certificate; Yale Psychology Intro Certificate; EMKT Situation Leadership Certificate; BMJ Editor Seminar Participant</li>
-<li>GE Healthcare Honors: President’s Award, four General Manager’s Awards, 21 global & regional excellence awards; sole supporting department representative selected for global PDX-MARS Business Leadership Program</li>
-<li>MSD R&D Honors: Outstanding Clinical Research Contribution Award, China EM/HQ Excellent Team Outstanding Performance Award</li>
-</ul>
-</section>
-<!-- 商务联络 -->
-<section id="contact" class="container">
-<h2 class="sec-title zh-text">学术交流 & 商务合作</h2>
-<h2 class="sec-title en-text">Academic & Business Cooperation Contact</h2>
-<div class="contact-text">
-<p>
-<i class="fa-solid fa-envelope"></i>
-<span class="zh-text">商务邮箱：</span>
-<span class="en-text">Business Email：</span>
-           ceciliabian06@gmail.com
-</p>
-<p><i class="fa-brands fa-github"></i> GitHub：github.com/bianxuan1015</p>
-<p>
-<i class="fa-solid fa-handshake-simple"></i>
-<span class="zh-text">合作方向：全球新药临床研发、Sonazoid超声造影学术转化、AI医疗影像产业化、跨国MDT学术平台搭建、类器官前沿医学创新、数字化医疗政策试点落地</span>
-<span class="en-text">Cooperation Fields: Global New Drug Clinical R&D, Sonazoid CEUS Academic Commercialization, AI Medical Imaging Industrialization, Cross-Border MDT Academic Platform, Organoid Cutting-Edge Medical Innovation, Policy-Linked Digital Medical Pilot Deployment</span>
-</p>
-</div>
-</section>
-<!-- 页脚 -->
-<footer class="footer">
-<p class="zh-text">© 2026 边璇｜学术顾问 个人学术官网 保留所有权利</p>
-<p class="en-text">© 2026 Cecilia Bian | Global Medical R&D Director Official Portfolio | All Rights Reserved</p>
-</footer>
-<!-- 双语切换脚本 -->
-<script>
-function switchLang(type) {
-   const zhText = document.querySelectorAll('.zh-text');
-   const enText = document.querySelectorAll('.en-text');
-   const btnZh = document.querySelectorAll('.lang-btn')[0];
-   const btnEn = document.querySelectorAll('.lang-btn')[1];
-   if (type === 'zh') {
-       zhText.forEach(item => item.style.display = 'block');
-       enText.forEach(item => item.style.display = 'none');
-       btnZh.classList.add('active');
-       btnEn.classList.remove('active');
-   } else {
-       zhText.forEach(item => item.style.display = 'none');
-       enText.forEach(item => item.style.display = 'block');
-       btnZh.classList.remove('active');
-       btnEn.classList.add('active');
-   }
-}
-</script>
 </body>
 </html>
