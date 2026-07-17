@@ -2,24 +2,26 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- 手机适配关键标签 -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Bian Xuan | Global Medical R&D</title>
 <style>
        * {
            margin: 0;
            padding: 0;
            box-sizing: border-box;
-           font-family: "Microsoft Yahei", sans-serif;
+           font-family: "Microsoft Yahei", system-ui, sans-serif;
        }
        body {
            background: linear-gradient(135deg, #0a2c2c, #0f3838);
            color: #ffffff;
            min-height: 100vh;
+           padding-bottom: 40px;
        }
-       /* 顶部导航栏 */
+       /* 顶部导航栏 电脑端横向 */
        header {
            width: 100%;
-           padding: 24px 40px;
+           padding: 20px 24px;
            display: flex;
            justify-content: space-between;
            align-items: center;
@@ -27,23 +29,23 @@
            top: 0;
            left: 0;
            z-index: 99;
+           background: linear-gradient(135deg, #0a2c2c, #0f3838);
        }
        .logo-header {
-           font-size: 34px;
+           font-size: 30px;
            color: #f9d14a;
            font-weight: bold;
        }
        .nav-list {
            display: flex;
-           gap: 32px;
+           gap: 24px;
            align-items: center;
        }
        .nav-list a {
            color: #fff;
            text-decoration: none;
-           font-size: 16px;
+           font-size: 15px;
        }
-       /* 右上角按钮样式缩小防遮挡 */
        .lang-btn, .contact-btn {
            padding: 5px 11px !important;
            font-size: 13px !important;
@@ -58,41 +60,78 @@
            background: #f9d14a;
            color: #000;
        }
-       /* 首页主体区域，下移避开导航遮挡 */
+       /* 首页主体区域 上下预留足够距离避开导航 */
        .hero-section {
-           padding: 0 40px;
-           padding-top: 160px;
+           padding: 0 24px;
+           padding-top: 140px;
            max-width: 1200px;
+           margin: 0 auto;
        }
        .hero-section h1 {
-           font-size: 54px;
-           margin-bottom: 18px;
+           font-size: 46px;
+           margin-bottom: 16px;
            color: #fff;
        }
        .title-desc {
-           font-size: 22px;
+           font-size: 20px;
            color: #f9d14a;
-           margin-bottom: 42px;
+           margin-bottom: 36px;
+           line-height: 1.5;
        }
        .tag-row {
            display: flex;
            flex-wrap: wrap;
-           gap: 16px;
-           margin-bottom: 22px;
+           gap: 14px;
+           margin-bottom: 20px;
        }
        .tag {
            border: 1px solid #f9d14a;
            color: #f9d14a;
-           padding: 9px 22px;
+           padding: 9px 18px;
            border-radius: 999px;
-           font-size: 16px;
+           font-size: 15px;
+           flex: 1;
+           min-width: 160px;
+           text-align: center;
        }
        .intro-text {
-           margin-top: 44px;
-           font-size: 18px;
-           line-height: 1.85;
+           margin-top: 40px;
+           font-size: 17px;
+           line-height: 1.8;
            color: #eeeeee;
            max-width: 920px;
+       }
+       /* 手机屏幕适配（宽度768px以内自动切换布局） */
+       @media screen and (max-width: 768px) {
+           header {
+               flex-direction: column;
+               gap: 16px;
+               padding: 16px 16px;
+           }
+           .nav-list {
+               flex-wrap: wrap;
+               justify-content: center;
+               gap: 12px;
+           }
+           .logo-header {
+               font-size: 26px;
+           }
+           .hero-section {
+               padding-top: 200px;
+           }
+           .hero-section h1 {
+               font-size: 34px;
+           }
+           .title-desc {
+               font-size: 17px;
+           }
+           .tag {
+               min-width: 130px;
+               font-size: 14px;
+           }
+           .intro-text {
+               font-size: 16px;
+           }
        }
 </style>
 </head>
@@ -110,7 +149,7 @@
 <button class="contact-btn">商务联络</button>
 </div>
 </header>
-<!-- 首页主内容（已移除证件照全部代码） -->
+<!-- 首页主内容（无任何证件照代码） -->
 <section class="hero-section">
 <h1>学术顾问 边璇</h1>
 <p class="title-desc">通用医疗生命科学事业部大中华区 医学研发总监</p>
@@ -119,6 +158,8 @@
 <span class="tag">牛津大学博士后</span>
 <span class="tag">英国皇家医学会会士</span>
 <span class="tag">AI医疗转化专家</span>
+</div>
+<div class="tag-row">
 <span class="tag">全球临床研发负责人</span>
 </div>
 <div class="tag-row">
@@ -126,6 +167,8 @@
 <span class="tag">Oxford Postdoc</span>
 <span class="tag">FRSM</span>
 <span class="tag">Medical AI Expert</span>
+</div>
+<div class="tag-row">
 <span class="tag">Global Clinical Lead</span>
 </div>
 <div class="intro-text">
