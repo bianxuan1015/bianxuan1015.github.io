@@ -2,178 +2,263 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<!-- 手机适配关键标签 -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Bian Xuan | Global Medical R&D</title>
-<style>
-       * {
-           margin: 0;
-           padding: 0;
-           box-sizing: border-box;
-           font-family: "Microsoft Yahei", system-ui, sans-serif;
-       }
-       body {
-           background: linear-gradient(135deg, #0a2c2c, #0f3838);
-           color: #ffffff;
-           min-height: 100vh;
-           padding-bottom: 40px;
-       }
-       /* 顶部导航栏 电脑端横向 */
-       header {
-           width: 100%;
-           padding: 20px 24px;
-           display: flex;
-           justify-content: space-between;
-           align-items: center;
-           position: fixed;
-           top: 0;
-           left: 0;
-           z-index: 99;
-           background: linear-gradient(135deg, #0a2c2c, #0f3838);
-       }
-       .logo-header {
-           font-size: 30px;
-           color: #f9d14a;
-           font-weight: bold;
-       }
-       .nav-list {
-           display: flex;
-           gap: 24px;
-           align-items: center;
-       }
-       .nav-list a {
-           color: #fff;
-           text-decoration: none;
-           font-size: 15px;
-       }
-       .lang-btn, .contact-btn {
-           padding: 5px 11px !important;
-           font-size: 13px !important;
-           margin-left: 8px !important;
-           border-radius: 20px;
-           border: 1px solid #f9d14a;
-           color: #f9d14a;
-           background: transparent;
-           cursor: pointer;
-       }
-       .lang-btn {
-           background: #f9d14a;
-           color: #000;
-       }
-       /* 首页主体区域 上下预留足够距离避开导航 */
-       .hero-section {
-           padding: 0 24px;
-           padding-top: 140px;
-           max-width: 1200px;
-           margin: 0 auto;
-       }
-       .hero-section h1 {
-           font-size: 46px;
-           margin-bottom: 16px;
-           color: #fff;
-       }
-       .title-desc {
-           font-size: 20px;
-           color: #f9d14a;
-           margin-bottom: 36px;
-           line-height: 1.5;
-       }
-       .tag-row {
-           display: flex;
-           flex-wrap: wrap;
-           gap: 14px;
-           margin-bottom: 20px;
-       }
-       .tag {
-           border: 1px solid #f9d14a;
-           color: #f9d14a;
-           padding: 9px 18px;
-           border-radius: 999px;
-           font-size: 15px;
-           flex: 1;
-           min-width: 160px;
-           text-align: center;
-       }
-       .intro-text {
-           margin-top: 40px;
-           font-size: 17px;
-           line-height: 1.8;
-           color: #eeeeee;
-           max-width: 920px;
-       }
-       /* 手机屏幕适配（宽度768px以内自动切换布局） */
-       @media screen and (max-width: 768px) {
-           header {
-               flex-direction: column;
-               gap: 16px;
-               padding: 16px 16px;
-           }
-           .nav-list {
-               flex-wrap: wrap;
-               justify-content: center;
-               gap: 12px;
-           }
-           .logo-header {
-               font-size: 26px;
-           }
-           .hero-section {
-               padding-top: 200px;
-           }
-           .hero-section h1 {
-               font-size: 34px;
-           }
-           .title-desc {
-               font-size: 17px;
-           }
-           .tag {
-               min-width: 130px;
-               font-size: 14px;
-           }
-           .intro-text {
-               font-size: 16px;
+<title data-i18n="title">Xuan Bian | Global Medical R&D Director</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script>
+       tailwind.config = {
+           theme: {
+               extend: {
+                   fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+                   colors: {
+                       gold: '#D4AF37',
+                       goldLight: '#E8C872',
+                       blackMain: '#050505',
+                       blackCard: '#121214',
+                       blackSoft: '#1A1A1D',
+                       grayText: '#C8C8CF'
+                   },
+                   borderRadius: { noble: '12px' }
+               }
            }
        }
+</script>
+<style type="text/tailwindcss">
+       @layer utilities {
+           .gold-shadow { box-shadow: 0 0 14px rgba(212,175,55,0.15); }
+           .card-border-gold { border: 1px solid rgba(212,175,55,0.18); }
+           .text-gradient-gold {
+               background: linear-gradient(120deg, #D4AF37, #E8C872);
+               -webkit-background-clip: text;
+               background-clip: text;
+               color: transparent;
+           }
+           .smooth-scroll { scroll-behavior: smooth; }
+       }
+       html { scroll-behavior: smooth; }
+       body { background-color: #050505; }
+       .nav-link.active { border-bottom: 2px solid #D4AF37; }
 </style>
 </head>
-<body>
-<!-- 顶部导航 -->
-<header>
-<div class="logo-header">BIANXUAN.MED</div>
-<div class="nav-list">
-<a href="#">首页</a>
-<a href="#">职业履历</a>
-<a href="#">专业能力</a>
-<a href="#">核心成果</a>
-<a href="#">教育资质</a>
-<button class="lang-btn">中文</button>
-<button class="contact-btn">商务联络</button>
+<body class="bg-blackMain text-grayText font-sans smooth-scroll">
+<!-- 导航栏 -->
+<header class="fixed top-0 left-0 w-full z-50 bg-blackSoft/92 backdrop-blur-xl gold-shadow">
+<div class="max-w-7xl mx-auto px-6 py-5 flex flex-col md:flex-row md:justify-between md:items-center gap-4">
+<a href="#hero" class="text-2xl font-semibold text-gradient-gold tracking-tight">BIANXUAN.MED</a>
+<div class="flex flex-wrap justify-center items-center gap-x-6 gap-y-3 text-sm">
+<a href="#hero" class="nav-link py-1 border-b-2 border-transparent hover:text-goldLight transition" data-i18n="navHome">首页</a>
+<a href="#career" class="nav-link py-1 border-b-2 border-transparent hover:text-goldLight transition" data-i18n="navCareer">职业履历</a>
+<a href="#expertise" class="nav-link py-1 border-b-2 border-transparent hover:text-goldLight transition" data-i18n="navExpertise">核心能力</a>
+<a href="#education" class="nav-link py-1 border-b-2 border-transparent hover:text-goldLight transition" data-i18n="navEdu">学术资质</a>
+<a href="#awards" class="nav-link py-1 border-b-2 border-transparent hover:text-goldLight transition" data-i18n="navAward">认证荣誉</a>
+<button id="langToggle" class="ml-3 px-3 py-1 rounded-noble card-border-gold text-gold hover:bg-gold hover:text-blackMain transition text-xs font-medium">EN</button>
+</div>
 </div>
 </header>
-<!-- 首页主内容（无任何证件照代码） -->
-<section class="hero-section">
-<h1>学术顾问 边璇</h1>
-<p class="title-desc">通用医疗生命科学事业部大中华区 医学研发总监</p>
-<div class="tag-row">
-<span class="tag">医学&管理双博士</span>
-<span class="tag">牛津大学博士后</span>
-<span class="tag">英国皇家医学会会士</span>
-<span class="tag">AI医疗转化专家</span>
+<main class="max-w-7xl mx-auto px-6 pt-44 pb-24">
+<!-- 个人简介+联系邮箱 -->
+<section id="hero" class="mb-32">
+<div class="max-w-3xl">
+<h1 class="text-[clamp(2.5rem,5vw,4rem)] font-light leading-tight mb-6 text-gradient-gold" data-i18n="heroTitle">边璇 | 医学学术顾问</h1>
+<p class="text-xl md:text-2xl text-goldLight font-light mb-8" data-i18n="heroSub">GE医疗生命科学 大中华区医学研发总监</p>
+<div class="space-y-4 text-base md:text-lg leading-relaxed mb-10">
+<p data-i18n="heroBio1">曾任GE全球Sonazoid医学负责人、全球临床评审委员会委员。</p>
+<p data-i18n="heroBio2">英国皇家医学会会士、美国AI科学院高级研究员；牛津大学博士后，医学&管理学双博士，兼任多所海外院校客座/访问学者。</p>
 </div>
-<div class="tag-row">
-<span class="tag">全球临床研发负责人</span>
+<div class="inline-block px-5 py-3 rounded-noble card-border-gold gold-shadow">
+<span class="text-grayText mr-2" data-i18n="contactLabel">联系邮箱：</span>
+<a href="mailto:ceciliabian06@gmail.com" class="text-goldLight hover:text-gradient-gold transition font-medium">ceciliabian06@gmail.com</a>
 </div>
-<div class="tag-row">
-<span class="tag">Dual Doctorates</span>
-<span class="tag">Oxford Postdoc</span>
-<span class="tag">FRSM</span>
-<span class="tag">Medical AI Expert</span>
-</div>
-<div class="tag-row">
-<span class="tag">Global Clinical Lead</span>
-</div>
-<div class="intro-text">
-<p>十余年跨国药企、医疗设备龙头医学事务全链路管理经验，深耕全球新药临床研发、AI医疗影像产业化、跨国学术资源运营、数字化医疗创新四大赛道，完整履历、项目成果与学术资质详见下方对应板块。</p>
 </div>
 </section>
+<!-- 职业履历（精简分卡，要点化） -->
+<section id="career" class="mb-32 scroll-mt-32">
+<h2 class="text-3xl font-light mb-12 border-l-4 border-gold pl-4 text-gradient-gold" data-i18n="careerTitle">职业履历</h2>
+<div class="grid md:grid-cols-3 gap-6">
+<div class="bg-blackCard p-7 rounded-noble card-border-gold gold-shadow hover:-translate-y-1 transition-transform duration-300">
+<h3 class="text-xl font-medium text-goldLight mb-2">GE HealthCare</h3>
+<p class="font-medium mb-4 text-white" data-i18n="job1Title">大中华区医学总监</p>
+<ul class="text-sm space-y-2 list-disc pl-4">
+<li data-i18n="job1li1">制定全球医学战略，统筹III-IV期跨国多中心临床，参编亚太肝癌诊疗共识</li>
+<li data-i18n="job1li2">搭建国际MDT学术平台，落地AI影像、CDSS临床决策创新项目</li>
+</ul>
+</div>
+<div class="bg-blackCard p-7 rounded-noble card-border-gold gold-shadow hover:-translate-y-1 transition-transform duration-300">
+<h3 class="text-xl font-medium text-goldLight mb-2">GE HealthCare</h3>
+<p class="font-medium mb-4 text-white" data-i18n="job2Title">全球医学战略负责人</p>
+<ul class="text-sm space-y-2 list-disc pl-4">
+<li data-i18n="job2li1">融合国内临床经验完善全球研发体系，推进智能设备临床规模化落地</li>
+<li data-i18n="job2li2">统筹跨科室医学创新，联合国家级媒体搭建医学科普体系</li>
+</ul>
+</div>
+<div class="bg-blackCard p-7 rounded-noble card-border-gold gold-shadow hover:-translate-y-1 transition-transform duration-300">
+<h3 class="text-xl font-medium text-goldLight mb-2">MSD / Pfizer</h3>
+<p class="font-medium mb-4 text-white" data-i18n="job3Title">临床研发项目负责人</p>
+<ul class="text-sm space-y-2 list-disc pl-4">
+<li data-i18n="job3li1">统筹跨国临床研究，对接60余家三甲医院，全流程管控项目交付</li>
+<li data-i18n="job3li2">肿瘤、心脑血管、神经疾病方向临床证据开发，支撑新药上市与医保申报</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- 四大核心能力（分段精简，无大段长文） -->
+<section id="expertise" class="mb-32 scroll-mt-32">
+<h2 class="text-3xl font-light mb-12 border-l-4 border-gold pl-4 text-gradient-gold" data-i18n="expTitle">核心专业能力</h2>
+<div class="space-y-6">
+<div class="bg-blackCard p-7 rounded-noble card-border-gold gold-shadow">
+<h3 class="text-lg font-medium text-goldLight mb-3" data-i18n="exp1Title">1. 全球全周期临床研发管理</h3>
+<p class="leading-relaxed text-sm" data-i18n="exp1Desc">十余年新药临床全链条管理经验，覆盖HEOR、真实世界研究、上市医学策略。主导20余项全球多中心临床试验，与30+国际院校开展IIT联合研究，建立标准化跨境临床证据体系。</p>
+</div>
+<div class="bg-blackCard p-7 rounded-noble card-border-gold gold-shadow">
+<h3 class="text-lg font-medium text-goldLight mb-3" data-i18n="exp2Title">2. AI医疗影像产业化落地</h3>
+<p class="leading-relaxed text-sm" data-i18n="exp2Desc">精通精准影像、超声造影、AI辅助诊断商业化路径。孵化20余项临床前创新项目落地人体试验，搭建跨学科人才培训体系，形成可复制医工转化模式。</p>
+</div>
+<div class="bg-blackCard p-7 rounded-noble card-border-gold gold-shadow">
+<h3 class="text-lg font-medium text-goldLight mb-3" data-i18n="exp3Title">3. 全球顶级学术资源整合</h3>
+<p class="leading-relaxed text-sm" data-i18n="exp3Desc">搭建中美日韩英跨国MDT协作网络，储备200+国际临床KOL。线上学术峰会覆盖4万行业从业者，新技术医院落地周期缩短40%，持续输出标准化循证医学数据。</p>
+</div>
+<div class="bg-blackCard p-7 rounded-noble card-border-gold gold-shadow">
+<h3 class="text-lg font-medium text-goldLight mb-3" data-i18n="exp4Title">4. 数字化医疗政策创新研发</h3>
+<p class="leading-relaxed text-sm" data-i18n="exp4Desc">依托大数据、AI、类器官技术开展源头医学创新，搭建药物肝肾毒性前置验证平台。落地CDSS、AI疾病识别、智慧医疗数字化试点，配套标准化临床培训方案。</p>
+</div>
+</div>
+</section>
+<!-- 教育与学术资质（分类列表，简洁清晰） -->
+<section id="education" class="mb-32 scroll-mt-32">
+<h2 class="text-3xl font-light mb-12 border-l-4 border-gold pl-4 text-gradient-gold" data-i18n="eduTitle">教育与学术资质</h2>
+<div class="bg-blackCard p-7 rounded-noble card-border-gold gold-shadow grid md:grid-cols-2 gap-3">
+<div>
+<h4 class="text-goldLight mb-2 text-base font-medium" data-i18n="eduGroup1">学术学会与院校任职</h4>
+<ul class="space-y-1 text-sm">
+<li data-i18n="edu1">英国皇家医学会会士 FRSM</li>
+<li data-i18n="edu2">美国国家AI科学院高级研究员</li>
+<li data-i18n="edu3">亚太肝病学会 APASL会员</li>
+<li data-i18n="edu6">莱斯特大学客座教授</li>
+<li data-i18n="edu7">日本近畿大学访问学者</li>
+<li data-i18n="edu8">牛津大学博士后（类器官质控方向）</li>
+</ul>
+</div>
+<div>
+<h4 class="text-goldLight mb-2 text-base font-medium" data-i18n="eduGroup2">学历背景</h4>
+<ul class="space-y-1 text-sm">
+<li data-i18n="edu9">医学博士：心血管风险干预</li>
+<li data-i18n="edu10">管理学博士：医疗人才体系创新</li>
+<li data-i18n="edu11">医学硕士：干细胞干预肝纤维化</li>
+<li data-i18n="edu12">国际商务双语硕士</li>
+<li data-i18n="edu13">临床医学本科（国际双语）</li>
+<li data-i18n="edu5">Nature官方大师课学员</li>
+<li data-i18n="edu4">诺丁汉大学RCT高质量设计认证</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- 认证与行业奖项 -->
+<section id="awards" scroll-mt-32>
+<h2 class="text-3xl font-light mb-12 border-l-4 border-gold pl-4 text-gradient-gold" data-i18n="awardTitle">专业认证 & 行业荣誉</h2>
+<div class="bg-blackCard p-7 rounded-noble card-border-gold gold-shadow grid md:grid-cols-2 gap-6">
+<div>
+<h4 class="text-goldLight mb-3 text-base font-medium" data-i18n="awGroup1">国际专业认证</h4>
+<ul class="space-y-2 text-sm">
+<li data-i18n="aw1">NIDA ICH-GCP 国际临床认证</li>
+<li data-i18n="aw2">斯坦福AI医疗应用评估认证</li>
+<li data-i18n="aw3">耶鲁大学心理学认证</li>
+<li data-i18n="aw4">EMKT 领导力模拟认证</li>
+<li data-i18n="aw5">BMJ学术研讨会官方学者</li>
+</ul>
+</div>
+<div>
+<h4 class="text-goldLight mb-3 text-base font-medium" data-i18n="awGroup2">企业专项荣誉</h4>
+<ul class="space-y-2 text-sm">
+<li data-i18n="aw6">GE全球PDX-MARS领导力项目医疗代表</li>
+<li data-i18n="aw7">GE总裁奖、总经理奖及21项全球表彰</li>
+<li data-i18n="aw8">默沙东R&D杰出贡献奖、临床管理专项奖</li>
+</ul>
+</div>
+</div>
+</section>
+</main>
+<!-- 双语翻译库 -->
+<script>
+const i18n = {
+   zh: {
+       title: "边璇 | 全球医学研发总监",
+       navHome: "首页", navCareer: "职业履历", navExpertise: "核心能力", navEdu: "学术资质", navAward: "认证荣誉",
+       heroTitle: "边璇 | 医学学术顾问", heroSub: "GE医疗生命科学 大中华区医学研发总监",
+       heroBio1: "曾任GE全球Sonazoid医学负责人、全球临床评审委员会委员。",
+       heroBio2: "英国皇家医学会会士、美国AI科学院高级研究员；牛津大学博士后，医学&管理学双博士，兼任多所海外院校客座/访问学者。",
+       contactLabel: "联系邮箱：",
+       careerTitle: "职业履历",
+       job1Title:"大中华区医学总监",job1li1:"制定全球医学战略，统筹III-IV期跨国多中心临床，参编亚太肝癌诊疗共识",job1li2:"搭建国际MDT学术平台，落地AI影像、CDSS临床决策创新项目",
+       job2Title:"全球医学战略负责人",job2li1:"融合国内临床经验完善全球研发体系，推进智能设备临床规模化落地",job2li2:"统筹跨科室医学创新，联合国家级媒体搭建医学科普体系",
+       job3Title:"临床研发项目负责人",job3li1:"统筹跨国临床研究，对接60余家三甲医院，全流程管控项目交付",job3li2:"肿瘤、心脑血管、神经疾病方向临床证据开发，支撑新药上市与医保申报",
+       expTitle:"核心专业能力",
+       exp1Title:"1. 全球全周期临床研发管理",
+       exp1Desc:"十余年新药临床全链条管理经验，覆盖HEOR、真实世界研究、上市医学策略。主导20余项全球多中心临床试验，与30+国际院校开展IIT联合研究，建立标准化跨境临床证据体系。",
+       exp2Title:"2. AI医疗影像产业化落地",
+       exp2Desc:"精通精准影像、超声造影、AI辅助诊断商业化路径。孵化20余项临床前创新项目落地人体试验，搭建跨学科人才培训体系，形成可复制医工转化模式。",
+       exp3Title:"3. 全球顶级学术资源整合",
+       exp3Desc:"搭建中美日韩英跨国MDT协作网络，储备200+国际临床KOL。线上学术峰会覆盖4万行业从业者，新技术医院落地周期缩短40%，持续输出标准化循证医学数据。",
+       exp4Title:"4. 数字化医疗政策创新研发",
+       exp4Desc:"依托大数据、AI、类器官技术开展源头医学创新，搭建药物肝肾毒性前置验证平台。落地CDSS、AI疾病识别、智慧医疗数字化试点，配套标准化临床培训方案。",
+       eduTitle:"教育与学术资质",
+       eduGroup1:"学术学会与院校任职",eduGroup2:"学历背景",
+       edu1:"英国皇家医学会会士 FRSM",edu2:"美国国家AI科学院高级研究员",edu3:"亚太肝病学会 APASL会员",edu4:"诺丁汉大学RCT高质量设计认证",edu5:"Nature官方大师课学员",
+       edu6:"莱斯特大学客座教授",edu7:"日本近畿大学访问学者",edu8:"牛津大学博士后（类器官质控方向）",
+       edu9:"医学博士：心血管风险干预",edu10:"管理学博士：医疗人才体系创新",edu11:"医学硕士：干细胞干预肝纤维化",edu12:"国际商务双语硕士",edu13:"临床医学本科（国际双语）",
+       awardTitle:"专业认证 & 行业荣誉",
+       awGroup1:"国际专业认证",awGroup2:"企业专项荣誉",
+       aw1:"NIDA ICH-GCP 国际临床认证",aw2:"斯坦福AI医疗应用评估认证",aw3:"耶鲁大学心理学认证",aw4:"EMKT 领导力模拟认证",aw5:"BMJ学术研讨会官方学者",
+       aw6:"GE全球PDX-MARS领导力项目医疗代表",aw7:"GE总裁奖、总经理奖及21项全球表彰",aw8:"默沙东R&D杰出贡献奖、临床管理专项奖"
+   },
+   en: {
+       title: "Xuan Bian | Global Medical R&D Director",
+       navHome: "Home", navCareer: "Career", navExpertise: "Core Expertise", navEdu: "Academic Credentials", navAward: "Certifications & Honors",
+       heroTitle: "Xuan Bian | Medical Advisor", heroSub: "Medical Director Greater China, GE Healthcare Life Sciences",
+       heroBio1: "Former Global Sonazoid Medical Lead & Member of Global Clinical Review Committee at GE Healthcare.",
+       heroBio2: "FRSM, Senior Fellow of National AI Institute USA; Postdoc at University of Oxford, Dual Doctorate in Medicine & Management, Visiting Professor/Scholar at multiple overseas universities.",
+       contactLabel: "Email：",
+       careerTitle: "Professional Career",
+       job1Title:"Greater China Medical Director",job1li1:"Devise global medical strategy, lead Phase III-IV multi-center cross-border trials, co-author APAC HCC clinical consensus",job1li2:"Build international MDT academic network, launch AI imaging & CDSS clinical innovation pilots",
+       job2Title:"Global Medical Strategy Lead",job2li1:"Integrate local Chinese clinical practice into global R&D system, accelerate scaled deployment of smart medical devices",job2li2:"Lead cross-department medical innovation, cooperate with national media for medical science communication",
+       job3Title:"Clinical R&D Project Lead",job3li1:"Manage cross-border clinical research, collaborate with over 60 top tertiary hospitals, full-cycle project delivery",job3li2:"Develop clinical evidence for oncology, cardiovascular & neurology, support drug launch & medical insurance application",
+       expTitle: "Core Professional Expertise",
+       exp1Title:"1. End-to-End Global Clinical Trial Management",
+       exp1Desc:"10+ years full lifecycle new drug clinical management, covering HEOR, RWE & pre-launch strategy. Led 20+ global multi-center trials, established IIT research partnerships with 30+ global institutes and standardized cross-border clinical evidence framework.",
+       exp2Title:"2. Industrialization of AI Medical Imaging",
+       exp2Desc:"Expert in precision radiology, ultrasound contrast & AI-aided diagnosis commercialization. Translated 20+ pre-clinical innovations into human trials, built interdisciplinary training system with replicable med-engineering conversion mechanism.",
+       exp3Title:"3. Integration of Global Top Academic Resources",
+       exp3Desc:"Built cross-border MDT network covering China, US, UK, Japan & Korea with 200+ leading clinical KOLs. Online summits reach 40,000 practitioners, shorten clinical launch cycle of new tech by 40%, continuously deliver standardized evidence-based datasets.",
+       exp4Title:"4. Digital Medical & Policy-Oriented R&D Innovation",
+       exp4Desc:"Original medical innovation powered by big data, AI and organoid models; develop liver/kidney toxicity pre-validation platform for pharmaceuticals. Deploy CDSS, AI disease recognition & smart healthcare digital pilots with standardized clinical training system.",
+       eduTitle: "Education & Academic Credentials",
+       eduGroup1:"Academic Societies & University Appointments",eduGroup2:"Degrees & Certifications",
+       edu1:"Fellow of Royal Society of Medicine (FRSM)",edu2:"Senior Research Fellow, National AI Institute USA",edu3:"Member, APASL",edu4:"Certified High-Quality RCT Design, University of Nottingham",edu5:"Participant, Nature Master Class",
+       edu6:"Visiting Professor, University of Leicester",edu7:"Visiting Scholar, Kindai University Japan",edu8:"Postdoc Researcher, University of Oxford (Organoid QC System)",
+       edu9:"Doctor of Medicine: Cardiovascular Risk Intervention",edu10:"Doctor of Management: Medical Talent System Innovation",edu11:"Master of Medicine: Mesenchymal Stem Cell Therapy for Hepatic Fibrosis",edu12:"Master of International Business (Bilingual)",edu13:"Bachelor of Clinical Medicine (International Bilingual Track)",
+       awardTitle: "Professional Certifications & Industry Honors",
+       awGroup1:"Global Professional Certifications",awGroup2:"Corporate Awards & Recognition",
+       aw1:"NIDA ICH-GCP Global Clinical Trial Certification",aw2:"Stanford Certification in AI Medical Evaluation",aw3:"Yale University Psychology Certificate",aw4:"EMKT Situational Leadership Certificate",aw5:"Official Attendee, BMJ Editorial Seminar",
+       aw6:"Sole Medical Representative, Global GE PDX-MARS Leadership Program",aw7:"GE President’s Award, General Manager Awards & 21 Global Regional Citations",aw8:"MSD R&D Outstanding Contribution Award, Clinical Management Excellence Award"
+   }
+};
+let currentLang = localStorage.getItem("siteLang") || "zh";
+const langBtn = document.getElementById("langToggle");
+function renderLang(lang) {
+   const dict = i18n[lang];
+   document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
+   document.querySelectorAll("[data-i18n]").forEach(el => {
+       const key = el.getAttribute("data-i18n");
+       el.textContent = dict[key];
+   });
+   langBtn.textContent = lang === "zh" ? "EN" : "CN";
+   localStorage.setItem("siteLang", lang);
+   currentLang = lang;
+}
+langBtn.addEventListener("click", ()=>renderLang(currentLang==="zh"?"en":"zh"));
+renderLang(currentLang);
+</script>
 </body>
 </html>
