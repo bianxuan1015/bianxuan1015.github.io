@@ -10,72 +10,182 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
 <script>
-       tailwind.config = {
-           darkMode: 'class',
-           theme: {
-               extend: {
-                   fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
-                   colors: {
-                       gold: '#D4AF37',
-                       goldLight: '#E8C872',
-                       goldNeon: '#FFD770',
-                       blackMain: '#020205',
-                       blackCard: '#0F0F14',
-                       blackSoft: '#16161D',
-                       grayText: '#C8C8CF',
-                       techBlue: '#223355'
-                   },
-                   borderRadius: { noble: '12px' }
-               }
-           }
-       }
+
+        tailwind.config = {
+
+            darkMode: 'class',
+
+            theme: {
+
+                extend: {
+
+                    fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+
+                    colors: {
+
+                        gold: '#D4AF37',
+
+                        goldLight: '#E8C872',
+
+                        goldNeon: '#FFD770',
+
+                        blackMain: '#020205',
+
+                        blackCard: '#0F0F14',
+
+                        blackSoft: '#16161D',
+
+                        grayText: '#C8C8CF',
+
+                        techBlue: '#223355'
+
+                    },
+
+                    borderRadius: { noble: '12px' }
+
+                }
+
+            }
+
+        }
 </script>
 <style type="text/tailwindcss">
-       @layer utilities {
-           /* 黑金科技光影 */
-           .gold-neon-shadow { box-shadow: 0 0 16px rgba(212,175,55,0.2), 0 0 32px rgba(232,200,114,0.08); }
-           .card-border-gold { border: 1px solid rgba(212,175,55,0.22); }
-           .text-gradient-gold {
-               background: linear-gradient(130deg, #B8860B, #E8C872, #FFF1A8);
-               -webkit-background-clip: text;
-               background-clip: text;
-               color: transparent;
-           }
-           .gold-border-flow {
-               position: relative;
-               overflow: hidden;
-           }
-           .gold-border-flow::after {
-               content: "";
-               position: absolute;
-               top: 0;
-               left: -100%;
-               width: 100%;
-               height: 100%;
-               background: linear-gradient(90deg, transparent, rgba(232,200,114,0.18), transparent);
-               animation: goldFlow 4s linear infinite;
-           }
-           @keyframes goldFlow {
-               0% { left: -100%; }
-               100% { left: 100%; }
-           }
-           .icon-glow:hover .fa {
-               filter: drop-shadow(0 0 8px #FFD770);
-               color: #goldNeon;
-               transform: scale(1.1);
-               transition: all 0.3s ease;
-           }
-           .card-lift { transition: transform 0.4s ease, box-shadow 0.4s ease; }
-           .card-lift:hover { transform: translateY(-6px); box-shadow: 0 0 24px rgba(212,175,55,0.25); }
-           .smooth-scroll { scroll-behavior: smooth; }
-           .bg-tech-layer {
-               background-image: radial-gradient(rgba(212,175,55,0.04) 1px, transparent 1px);
-               background-size: 40px 40px;
-           }
-       }
-       html { scroll-behavior: smooth; }
-       body { background-color: #020205; background-image: radial-gradient(rgba(212,175,55,0.04) 1px, transparent 1px); background-size: 40px 40px; }
-       .nav-link.active { border-bottom: 2px solid #D4AF37; }
+
+        @layer utilities {
+
+            /* 黑金科技光影 */
+
+            .gold-neon-shadow { box-shadow: 0 0 16px rgba(212,175,55,0.2), 0 0 32px rgba(232,200,114,0.08); }
+
+            .card-border-gold { border: 1px solid rgba(212,175,55,0.22); }
+
+            .text-gradient-gold {
+
+                background: linear-gradient(130deg, #B8860B, #E8C872, #FFF1A8);
+
+                -webkit-background-clip: text;
+
+                background-clip: text;
+
+                color: transparent;
+
+            }
+
+            .gold-border-flow {
+
+                position: relative;
+
+                overflow: hidden;
+
+            }
+
+            .gold-border-flow::after {
+
+                content: "";
+
+                position: absolute;
+
+                top: 0;
+
+                left: -100%;
+
+                width: 100%;
+
+                height: 100%;
+
+                background: linear-gradient(90deg, transparent, rgba(232,200,114,0.18), transparent);
+
+                animation: goldFlow 4s linear infinite;
+
+            }
+
+            @keyframes goldFlow {
+
+                0% { left: -100%; }
+
+                100% { left: 100%; }
+
+            }
+
+            .icon-glow:hover .fa {
+
+                filter: drop-shadow(0 0 8px #FFD770);
+
+                color: #goldNeon;
+
+                transform: scale(1.1);
+
+                transition: all 0.3s ease;
+
+            }
+
+            .card-lift { transition: transform 0.4s ease, box-shadow 0.4s ease; }
+
+            .card-lift:hover { transform: translateY(-6px); box-shadow: 0 0 24px rgba(212,175,55,0.25); }
+
+            .smooth-scroll { scroll-behavior: smooth; }
+
+            .bg-tech-layer {
+
+                background-image: radial-gradient(rgba(212,175,55,0.04) 1px, transparent 1px);
+
+                background-size: 40px 40px;
+
+            }
+
+            /* 邮箱按钮悬浮提示 */
+
+            .mail-btn { position: relative; }
+
+            .mail-tip {
+
+                visibility: hidden;
+
+                opacity: 0;
+
+                position: absolute;
+
+                left: 110%;
+
+                top: 50%;
+
+                transform: translateY(-50%);
+
+                background: #111;
+
+                border: 1px solid rgba(212,175,55,0.3);
+
+                padding: 6px 12px;
+
+                border-radius: 6px;
+
+                white-space: nowrap;
+
+                color: #E8C872;
+
+                font-size: 13px;
+
+                transition: 0.2s all ease;
+
+                z-index: 10;
+
+            }
+
+            .mail-btn:hover .mail-tip {
+
+                visibility: visible;
+
+                opacity: 1;
+
+            }
+
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body { background-color: #020205; background-image: radial-gradient(rgba(212,175,55,0.04) 1px, transparent 1px); background-size: 40px 40px; }
+
+        .nav-link.active { border-bottom: 2px solid #D4AF37; }
 </style>
 </head>
 <body class="text-grayText font-sans smooth-scroll">
@@ -94,24 +204,23 @@
 </div>
 </header>
 <main class="max-w-7xl mx-auto px-6 pt-48 pb-28">
-<!-- 首页个人简介 + 图标邮箱联系方式 -->
+<!-- 首页个人简介 + 极简邮箱图标按钮（不显示邮箱文本，hover提示） -->
 <section id="hero" class="mb-40">
 <div class="max-w-4xl">
-<h1 class="text-[clamp(2.8rem,6vw,4.5rem)] font-light leading-tight mb-6 text-gradient-gold" data-i18n="heroTitle">边璇 | 医学学术顾问</h1>
+<h1 class="text-[clamp(2.8rem,6vw,4.5rem)] font-light leading-tight mb-6 text-gradient-gold" data-i18n="heroTitle">边璇 | 学术顾问</h1>
 <p class="text-xl md:text-3xl text-goldLight font-light mb-10 tracking-wide" data-i18n="heroSub">原GE医疗生命科学 大中华区医学研发总监</p>
 <div class="space-y-5 text-base md:text-lg leading-relaxed mb-12">
 <p data-i18n="heroBio1">曾任GE医疗全球Sonazoid医学负责人、全球临床研究审核专家委员会核心委员，深耕跨国临床研发、AI智慧医疗转化、国际学术资源运营十余年。</p>
 <p data-i18n="heroBio2">英国皇家医学会会士、美国国家人工智能科学院高级研究员；牛津大学博士后，医学、管理学双博士；兼任英国莱斯特大学客座教授、日本近畿大学访问学者，持有斯坦福AI医疗、国际GCP全套权威认证。现专职担任医学学术顾问，为医疗机构、医疗器械企业、创新药企提供全链条医学战略咨询。</p>
 </div>
-<!-- 图标版邮件超链接 科技炫酷样式 -->
-<a href="mailto:ceciliabian06@gmail.com" class="icon-glow inline-flex items-center gap-3 px-6 py-4 rounded-noble card-border-gold gold-border-flow gold-neon-shadow bg-blackCard/70 transition-all duration-300 hover:bg-blackSoft">
+<!-- 仅图标小按钮，无冗长邮箱文字，悬浮显示邮箱 -->
+<a href="mailto:ceciliabian06@gmail.com" class="icon-glow mail-btn inline-flex items-center justify-center w-14 h-14 rounded-noble card-border-gold gold-border-flow gold-neon-shadow bg-blackCard/70 transition-all duration-300 hover:bg-blackSoft">
 <i class="fa fa-envelope-o text-xl text-goldLight"></i>
-<span class="text-grayText" data-i18n="contactLabel">商务咨询邮箱：</span>
-<span class="text-goldNeon font-medium">ceciliabian06@gmail.com</span>
+<span class="mail-tip">ceciliabian06@gmail.com</span>
 </a>
 </div>
 </section>
-<!-- 职业履历【拆分GE两段、默沙东、辉瑞四张独立卡片，内容大幅扩充】 -->
+<!-- 职业履历【顺序调整：GE两段 → 默沙东MSD → 辉瑞；辉瑞岗位修正医学事务】 -->
 <section id="career" class="mb-40 scroll-mt-36">
 <h2 class="text-4xl font-light mb-16 border-l-4 border-gold pl-5 text-gradient-gold" data-i18n="careerTitle">完整职业履历</h2>
 <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-8">
@@ -137,7 +246,7 @@
 <li data-i18n="job2li4">参与全球临床评审委员会，负责跨国临床试验方案审核、风险评估与医学策略校准。</li>
 </ul>
 </div>
-<!-- 默沙东 MSD 独立卡片 -->
+<!-- 默沙东 MSD 前置 -->
 <div class="bg-blackCard p-8 rounded-noble card-border-gold gold-neon-shadow card-lift gold-border-flow">
 <h3 class="text-xl font-medium text-goldLight mb-3">Merck MSD</h3>
 <p class="font-medium mb-5 text-white text-lg" data-i18n="job3Title">临床研发项目负责人</p>
@@ -147,10 +256,10 @@
 <li data-i18n="job3li3">搭建区域临床研究者沟通体系，组织研究者培训、临床试验质量稽查，保障全球多中心试验数据合规完整。</li>
 </ul>
 </div>
-<!-- 辉瑞 Pfizer 独立卡片 -->
+<!-- 辉瑞 Pfizer 后置，职务改为医学事务 -->
 <div class="bg-blackCard p-8 rounded-noble card-border-gold gold-neon-shadow card-lift gold-border-flow">
 <h3 class="text-xl font-medium text-goldLight mb-3">Pfizer 辉瑞</h3>
-<p class="font-medium mb-5 text-white text-lg" data-i18n="job4Title">医学事务 | 研发项目主管</p>
+<p class="font-medium mb-5 text-white text-lg" data-i18n="job4Title">医学事务</p>
 <ul class="text-sm space-y-3 list-disc pl-4 text-grayText">
 <li data-i18n="job4li1">负责心脑血管、神经退行性疾病领域临床项目运营，协助完成II期探索性临床方案设计与中心启动。</li>
 <li data-i18n="job4li2">负责临床研究者关系维护，收集临床未满足诊疗需求，反向迭代新药临床开发方向。</li>
@@ -159,31 +268,51 @@
 </div>
 </div>
 </section>
-<!-- 四大核心专业能力 内容大幅丰富，分段清晰不堆砌 -->
+<!-- 核心专业咨询板块 | 全部内容分条展示 -->
 <section id="expertise" class="mb-40 scroll-mt-36">
-<h2 class="text-4xl font-light mb-16 border-l-4 border-gold pl-5 text-gradient-gold" data-i18n="expTitle">四大核心专业咨询能力</h2>
+<h2 class="text-4xl font-light mb-16 border-l-4 border-gold pl-5 text-gradient-gold" data-i18n="expTitle">四大核心专业咨询板块</h2>
 <div class="space-y-10">
 <div class="bg-blackCard p-10 rounded-noble card-border-gold gold-neon-shadow gold-border-flow">
 <h3 class="text-2xl font-medium text-goldLight mb-5" data-i18n="exp1Title">一、全球新药&器械全周期临床研发咨询</h3>
-<p class="leading-relaxed text-base" data-i18n="exp1Desc">拥有十余年全球创新药物、高端医疗器械完整临床管线操盘经验，业务覆盖卫生经济学HEOR、真实世界RWE研究、新药上市医学策略、医保准入证据搭建四大核心板块。累计主导20余项覆盖肿瘤、肝病、心脑血管、神经疾病赛道全球多中心临床试验，独立设计研究者发起IIT/IST科研项目；与牛津、港大、东京大学等全球30+顶尖医学院校建立长期联合科研通道，可输出标准化跨境临床研究合规方案、数据管理体系、风险质控流程，为药企、器械厂商提供从临床立项到注册申报一站式医学顾问服务。</p>
+<ul class="space-y-3 list-disc pl-6 text-base leading-relaxed" data-i18n="exp1List">
+<li>拥有十余年全球创新药物、高端医疗器械完整临床管线操盘经验，覆盖卫生经济学HEOR、真实世界RWE研究、新药上市医学策略、医保准入证据搭建四大核心业务；</li>
+<li>累计主导20余项覆盖肿瘤、肝病、心脑血管、神经疾病赛道全球多中心临床试验，可独立设计研究者发起IIT/IST科研项目；</li>
+<li>与牛津、港大、东京大学等全球30+顶尖医学院校建立长期联合科研通道；</li>
+<li>输出标准化跨境临床研究合规方案、数据管理体系、风险质控流程，提供从临床立项到注册申报一站式医学顾问服务。
+</ul>
 </div>
 <div class="bg-blackCard p-10 rounded-noble card-border-gold gold-neon-shadow gold-border-flow">
 <h3 class="text-2xl font-medium text-goldLight mb-5" data-i18n="exp2Title">二、AI医疗影像与医工交叉成果转化落地</h3>
-<p class="leading-relaxed text-base" data-i18n="exp2Desc">精通精准放射影像、超声造影、AI辅助诊断、数字化诊疗设备全链条商业化路径，熟悉算法临床验证、器械注册循证要求。累计孵化20余项临床前AI医疗创新项目，完整打通实验室技术到医院人体临床试验转化链路；搭建分层式跨学科临床人才培训体系，落地40余场全国性医学技术专项培训，形成可复制、可规模化的医工协同创新落地模式。可为AI医疗初创企业、影像设备厂商提供临床验证方案设计、专家资源对接、试点医院落地全流程咨询。</p>
+<ul class="space-y-3 list-disc pl-6 text-base leading-relaxed" data-i18n="exp2List">
+<li>精通精准放射影像、超声造影、AI辅助诊断、数字化诊疗设备全链条商业化路径，熟悉算法临床验证、器械注册循证要求；</li>
+<li>累计孵化20余项临床前AI医疗创新项目，完整打通实验室技术到医院人体临床试验转化链路；</li>
+<li>搭建分层式跨学科临床人才培训体系，落地40余场全国性医学技术专项培训，形成可复制落地模式；</li>
+<li>为AI医疗初创、影像设备厂商提供临床验证方案、专家资源对接、试点医院落地全流程咨询。
+</ul>
 </div>
 <div class="bg-blackCard p-10 rounded-noble card-border-gold gold-neon-shadow gold-border-flow">
 <h3 class="text-2xl font-medium text-goldLight mb-5" data-i18n="exp3Title">三、国际顶级学术资源整合与循证医学体系搭建</h3>
-<p class="leading-relaxed text-base" data-i18n="exp3Desc">自主搭建覆盖中、美、英、日、韩五国跨国MDT多学科学术协作网络，储备200余名海内外主任医师、学科带头人KOL资源库。每年落地多场国际线上线下医学学术峰会，单场线上参会行业专家最高4万余人；依托权威临床专家资源快速完成新技术临床认可度背书，可将医疗创新产品全国医院落地周期缩短40%。擅长系统性沉淀标准化循证医学数据库，支撑AI模型训练、诊疗指南编写、学术论文产出、产品学术包装。</p>
+<ul class="space-y-3 list-disc pl-6 text-base leading-relaxed" data-i18n="exp3List">
+<li>自主搭建中、美、英、日、韩跨国MDT多学科学术协作网络，储备200余名海内外学科带头人KOL资源库；</li>
+<li>每年举办多场国际线上线下医学峰会，单场线上行业专家参会人数最高4万余人；</li>
+<li>依托权威专家背书提升新技术临床认可度，可将医疗产品全国医院落地周期缩短40%；</li>
+<li>搭建标准化循证医学数据库，支撑AI模型训练、诊疗指南编写、学术论文产出、产品学术包装。
+</ul>
 </div>
 <div class="bg-blackCard p-10 rounded-noble card-border-gold gold-neon-shadow gold-border-flow">
 <h3 class="text-2xl font-medium text-goldLight mb-5" data-i18n="exp4Title">四、数字化智慧医疗与政策联动创新方案策划</h3>
-<p class="leading-relaxed text-base" data-i18n="exp4Desc">深耕大数据医疗、人工智能、类器官体外模型三大前沿技术赛道源头创新，搭建药物肝肾毒性早期体外检测验证平台，大幅降低新药临床前研发风险。擅长对接国内医疗数字化相关政策，落地临床决策支持系统CDSS、AI疾病智能筛查、区域智慧医疗数字平台等政府合作试点项目；联动国家级媒体、医学学会打造规范化学术科普传播渠道，可输出“智能诊疗工具+临床标准化培训+政策申报材料”一体化落地方案，适配医院、科创企业、地方卫健单位多重咨询需求。</p>
+<ul class="space-y-3 list-disc pl-6 text-base leading-relaxed" data-i18n="exp4List">
+<li>深耕医疗大数据、人工智能、类器官体外模型源头创新，搭建药物肝肾毒性早期体外检测验证平台，降低临床前研发风险；</li>
+<li>熟悉国内医疗数字化相关政策，落地CDSS、AI智能筛查、区域智慧医疗平台等政府合作试点；</li>
+<li>联动国家级媒体、医学学会搭建规范化学术科普传播渠道；</li>
+<li>输出「智能诊疗工具+临床标准化培训+政策申报材料」一体化落地方案，适配医院、科创企业、卫健单位需求。
+</ul>
 </div>
 </div>
 </section>
 <!-- 教育与学术资质 双栏布局科技黑金卡片 -->
 <section id="education" class="mb-40 scroll-mt-36">
-<h2 class="text-4xl font-light mb-16 border-l-4 border-gold pl-5 text-gradient-gold" data-i18n="eduTitle">教育背景与学术任职资质</h2>
+<h2 class="text-4xl font-light mb-16 border-l-4 border-gold pl-5 text-gradient-gold" data-i18n="eduTitle">教育背景与学术资质</h2>
 <div class="bg-blackCard p-10 rounded-noble card-border-gold gold-neon-shadow gold-border-flow grid md:grid-cols-2 gap-10">
 <div>
 <h4 class="text-goldLight mb-5 text-xl font-medium" data-i18n="eduGroup1">国际学术学会 & 院校任职</h4>
@@ -235,119 +364,302 @@
 </div>
 </section>
 </main>
-<!-- 双语完整翻译库 -->
+<!-- 底部正式版权页脚（2026年份，规范网页声明） -->
+<footer class="bg-blackSoft py-8 border-t border-[rgba(212,175,55,0.15)]">
+<div class="max-w-7xl mx-auto px-6 text-center text-sm text-gray-400 leading-relaxed">
+<p class="mb-2" data-i18n="copyright">©2026 医学学术顾问 版权所有 | 专业医疗学术咨询官方展示网站</p>
+<p data-i18n="copyrightDesc">本网站所有内容仅用于专业商务展示，不构成诊疗建议；所有文字、案例、资质未经许可禁止转载复制</p>
+</div>
+</footer>
+<!-- 双语完整翻译库（同步更新所有修改文字） -->
 <script>
+
 const i18n = {
-   zh: {
-       title: "边璇 | 学术顾问",
-       navHome: "首页", navCareer: "职业履历", navExpertise: "核心能力", navEdu: "学术资质", navAward: "认证荣誉",
-       heroTitle: "边璇 | 学术顾问", heroSub: "原GE医疗生命科学 大中华区医学研发总监",
-       heroBio1: "曾任GE医疗全球Sonazoid医学负责人、全球临床研究审核专家委员会核心委员，深耕跨国临床研发、AI智慧医疗转化、国际学术资源运营十余年。",
-       heroBio2: "英国皇家医学会会士、美国国家人工智能科学院高级研究员；牛津大学博士后，医学、管理学双博士；兼任英国莱斯特大学客座教授、日本近畿大学访问学者，持有斯坦福AI医疗、国际GCP全套权威认证。现专职担任医学学术顾问，为医疗机构、医疗器械企业、创新药企提供全链条医学战略咨询。",
-       contactLabel: "商务咨询邮箱：",
-       careerTitle: "完整职业履历",
-       job1Title:"大中华区医学研发总监",
-       job1li1:"牵头制定大中华区全域疾病赛道医学顶层战略，搭建肿瘤、肝病、心脑血管标准化临床研究体系，统筹全部III、IV期跨国多中心临床试验，牵头编制亚太肝癌规范化诊疗专家共识。",
-       job1li2:"搭建覆盖全国三甲医院的国际MDT多学科学术交流平台，联动全球6000+临床权威KOL，常态化举办跨国线上线下医学峰会。",
-       job1li3:"主导AI医学影像、超声造影、临床决策支持系统CDSS创新落地项目，完成多家省级医院智慧医疗试点临床验证与商业化落地。",
-       job1li4:"统筹医学合规、临床证据管理、市场医学科普全板块工作，搭建区域医学人才分层培养体系。",
-       job2Title:"全球医学战略负责人",
-       job2li1:"深度整合国内真实世界临床数据与全球研发管线，搭建中美欧日韩跨区域医学协作机制，统一全球设备临床循证标准。",
-       job2li2:"统筹全球前沿医工交叉创新项目，推动智能诊断设备、AI辅助筛查技术全球规模化临床落地。",
-       job2li3:"对接国家级权威媒体、医学学会，打造系统化权威医学科普矩阵，降低前沿医疗技术市场教育门槛。",
-       job2li4:"参与全球临床评审委员会，负责跨国临床试验方案审核、风险评估与医学策略校准。",
-       job3Title:"临床研发项目负责人",
-       job3li1:"全权统筹抗肿瘤创新药跨国III期临床研究，筛选并落地全国60余家核心三甲研究中心，全流程管控立项、伦理、入组、数据锁库、结题交付全周期。",
-       job3li2:"深耕实体肿瘤临床证据开发，完成卫生经济学HEOR、真实世界RWE研究设计，产出全套支撑新药上市、医保谈判、院内准入的医学证据材料。",
-       job3li3:"搭建区域临床研究者沟通体系，组织研究者培训、临床试验质量稽查，保障全球多中心试验数据合规完整。",
-       job4Title:"临床医学专员 | 研发项目主管",
-       job4li1:"负责心脑血管、神经退行性疾病领域临床项目运营，协助完成II期探索性临床方案设计与中心启动。",
-       job4li2:"负责临床研究者关系维护，收集临床未满足诊疗需求，反向迭代新药临床开发方向。",
-       job4li3:"撰写医学综述、研究者手册、临床培训材料，支撑产品上市后学术推广与临床规范化使用。",
-       expTitle: "四大核心专业咨询能力",
-       exp1Title:"一、全球新药&器械全周期临床研发咨询",
-       exp1Desc:"拥有十余年全球创新药物、高端医疗器械完整临床管线操盘经验，业务覆盖卫生经济学HEOR、真实世界RWE研究、新药上市医学策略、医保准入证据搭建四大核心板块。累计主导20余项覆盖肿瘤、肝病、心脑血管、神经疾病赛道全球多中心临床试验，独立设计研究者发起IIT/IST科研项目；与牛津、港大、东京大学等全球30+顶尖医学院校建立长期联合科研通道，可输出标准化跨境临床研究合规方案、数据管理体系、风险质控流程，为药企、器械厂商提供从临床立项到注册申报一站式医学顾问服务。",
-       exp2Title:"二、AI医疗影像与医工交叉成果转化落地",
-       exp2Desc:"精通精准放射影像、超声造影、AI辅助诊断、数字化诊疗设备全链条商业化路径，熟悉算法临床验证、器械注册循证要求。累计孵化20余项临床前AI医疗创新项目，完整打通实验室技术到医院人体临床试验转化链路；搭建分层式跨学科临床人才培训体系，落地40余场全国性医学技术专项培训，形成可复制、可规模化的医工协同创新落地模式。可为AI医疗初创企业、影像设备厂商提供临床验证方案设计、专家资源对接、试点医院落地全流程咨询。",
-       exp3Title:"三、国际顶级学术资源整合与循证医学体系搭建",
-       exp3Desc:"自主搭建覆盖中、美、英、日、韩五国跨国MDT多学科学术协作网络，储备200余名海内外主任医师、学科带头人KOL资源库。每年落地多场国际线上线下医学学术峰会，单场线上参会行业专家最高4万余人；依托权威临床专家资源快速完成新技术临床认可度背书，可将医疗创新产品全国医院落地周期缩短40%。擅长系统性沉淀标准化循证医学数据库，支撑AI模型训练、诊疗指南编写、学术论文产出、产品学术包装。",
-       exp4Title:"四、数字化智慧医疗与政策联动创新方案策划",
-       exp4Desc:"深耕大数据医疗、人工智能、类器官体外模型三大前沿技术赛道源头创新，搭建药物肝肾毒性早期体外检测验证平台，大幅降低新药临床前研发风险。擅长对接国内医疗数字化相关政策，落地临床决策支持系统CDSS、AI疾病智能筛查、区域智慧医疗数字平台等政府合作试点项目；联动国家级媒体、医学学会打造规范化学术科普传播渠道，可输出“智能诊疗工具+临床标准化培训+政策申报材料”一体化落地方案，适配医院、科创企业、地方卫健单位多重咨询需求。",
-       eduTitle: "教育背景与学术任职资质",
-       eduGroup1:"国际学术学会 & 院校任职",eduGroup2:"完整学历体系与学术认证课程",
-       edu1:"英国皇家医学会正式会士 FRSM",edu2:"美国国家人工智能科学院高级研究员",edu3:"亚太肝病学会 APASL 注册会员",edu4:"诺丁汉大学高质量RCT临床试验设计认证",edu5:"Nature 官方前沿医学大师课认证学员",
-       edu6:"英国莱斯特大学医学院 客座教授",edu7:"日本近畿大学医学部 访问学者",edu8:"牛津大学博士后（类器官质控研发方向）",
-       edu9:"医学博士：心血管疾病早期风险干预方向",edu10:"管理学博士：高端医疗人才创新培养体系",edu11:"医学硕士：干细胞干预肝纤维化临床研究",edu12:"国际商务双语硕士（医疗产业方向）",edu13:"临床医学本科（国际双语培养项目）",
-       awardTitle: "全球专业认证 & 行业重磅荣誉",
-       awGroup1:"国际权威专业认证",awGroup2:"企业全球重量级表彰荣誉",
-       aw1:"NIDA ICH-GCP 国际全流程临床试验认证",aw2:"斯坦福大学 AI 医疗临床应用评估认证",aw3:"耶鲁大学医学应用心理学专项认证",aw4:"EMKT 全球医疗领导力模拟认证",aw5:"BMJ 英国医学期刊官方学术研讨学者",
-       aw6:"GE全球PDX-MARS高层领导力项目医疗板块唯一代表",aw7:"GE总裁最高奖、大区总经理专项奖，累计21项全球区域官方表彰",
-       aw8:"默沙东全球研发杰出贡献奖、临床精细化管理专项金奖"
-   },
-   en: {
-       title: "Xuan Bian | Medical Academic Consultant",
-       navHome: "Home", navCareer: "Career Profile", navExpertise: "Core Consulting Expertise", navEdu: "Academic Credentials", navAward: "Certifications & Honors",
-       heroTitle: "Xuan Bian | Medical Academic Consultant", heroSub: "Former Medical R&D Director Greater China, GE Healthcare Life Sciences",
-       heroBio1: "Ex-Global Sonazoid Medical Lead, Core Committee Member of GE Global Clinical Review Board. Over 10 years of cross-border clinical development, AI medical transformation and global academic resource operation experience.",
-       heroBio2: "Fellow of Royal Society of Medicine, Senior Research Fellow of National AI Institute USA; Postdoc at University of Oxford, Dual Doctorate in Medicine & Management. Visiting Professor at University of Leicester, Visiting Scholar at Kindai University Japan, certified in Stanford AI Medicine & ICH-GCP. Now working full-time as independent medical academic consultant, providing end-to-end medical strategy consulting for hospitals, medical device companies and innovative pharmaceutical enterprises.",
-       contactLabel: "Business Inquiry Email: ",
-       careerTitle: "Full Career Profile",
-       job1Title:"Greater China Medical R&D Director",
-       job1li1:"Formulate top-tier medical strategy covering all disease tracks in Greater China, build standardized clinical research framework for oncology, hepatology and cardiovascular diseases; lead all Phase III & IV multi-country multi-center trials, co-author APAC standardized HCC clinical expert consensus.",
-       job1li2:"Launch international MDT academic network covering top tertiary hospitals nationwide, cooperate with over 6,000 global leading clinical KOLs, host regular cross-border medical summits offline & online.",
-       job1li3:"Lead innovative projects of AI radiology, ultrasound contrast and CDSS clinical decision system, complete clinical verification and commercial launch of smart medical pilots in multiple provincial hospitals.",
-       job1li4:"Oversee medical compliance, clinical evidence management and medical science communication; establish tiered regional medical talent training system.",
-       job2Title:"Global Medical Strategy Lead",
-       job2li1:"Integrate real-world domestic clinical data into global R&D pipeline, build cross-regional collaboration network across China, US, Europe, Japan & Korea, unify global clinical evidence standards for medical equipment.",
-       job2li2:"Manage global interdisciplinary med-tech innovation projects, accelerate worldwide clinical rollout of AI diagnostic tools & intelligent screening devices.",
-       job2li3:"Cooperate with national mainstream media & medical associations to build systematic authoritative medical science communication system, reduce market education cost for cutting-edge medical technology.",
-       job2li4:"Serve on global clinical review board, responsible for cross-border trial protocol audit, risk assessment and medical strategy calibration.",
-       job3Title:"Clinical R&D Project Lead",
-       job3li1:"Fully manage Phase III cross-border clinical trials for anti-tumor drugs, launch collaboration with over 60 core tertiary research centers nationwide; full-cycle management including project initiation, ethics approval, patient enrollment, data lock and final report submission.",
-       job3li2:"Develop clinical evidence for solid tumors, design HEOR & RWE real-world research, deliver complete evidence packages supporting drug launch, medical insurance negotiation and hospital access.",
-       job3li3:"Build communication system for clinical investigators, organize training & trial quality audits to ensure fully compliant & complete multi-center clinical data.",
-       job4Title:"Clinical Medical Specialist | R&D Supervisor",
-       job4li1:"Operate clinical projects for cardiovascular & neurodegenerative diseases, assist Phase II exploratory trial protocol design and research center activation.",
-       job4li2:"Maintain investigator relationships, collect unmet clinical medical demands to iterate new drug development directions.",
-       job4li3:"Author medical reviews, investigator brochures & clinical training materials to support post-launch academic promotion and standardized clinical application.",
-       expTitle: "Four Core Consulting Capabilities",
-       exp1Title:"1. End-to-End Global Clinical R&D Consulting for Pharmaceuticals & Devices",
-       exp1Desc:"10+ years full pipeline operation experience for innovative drugs & high-end medical devices, covering HEOR health economics, RWE real-world evidence, pre-launch medical strategy & medical insurance evidence construction. Led over 20 global multi-center trials across oncology, liver, cardiovascular & neurology; independently design IIT investigator-initiated research projects. Establish long-term joint research partnerships with 30+ top medical schools including Oxford & HKU, deliver standardized cross-border clinical compliance framework, data management & risk control process, provide one-stop medical consulting service from clinical initiation to registration submission for pharma & device manufacturers.",
-       exp2Title:"2. AI Medical Imaging & Med-Tech Commercialization Consulting",
-       exp2Desc:"Expert in full commercialization chain of precision radiology, ultrasound contrast & AI-aided diagnosis, familiar with algorithm clinical verification & medical device registration evidence requirements. Incubated more than 20 pre-clinical AI medical innovations, fully bridging lab technology to hospital human trial transformation; build interdisciplinary tiered clinical training system, deliver over 40 nationwide technical workshops, create replicable med-engineering innovation model. Provide full-process consulting for AI medical startups & imaging equipment manufacturers covering trial design, KOL matching & hospital pilot landing.",
-       exp3Title:"3. Global Academic Resource Integration & Evidence-Based Medicine System Construction",
-       exp3Desc:"Self-established cross-border MDT academic network covering China, US, UK, Japan & Korea, database with 200+ chief physicians & discipline leaders. Host multiple international medical summits annually, single online summit reaching up to 40,000 industry practitioners. Accelerate clinical recognition of new technologies via top KOL endorsement, shorten nationwide hospital launch cycle of medical innovations by 40%. Specialize in building standardized evidence-based medical database to support AI model training, clinical guideline compilation, academic paper writing & product academic branding.",
-       exp4Title:"4. Digital Smart Healthcare & Policy-Oriented Innovation Solution Design",
-       exp4Desc:"Focus on original medical innovation powered by big data, AI & organoid in-vitro models; develop early liver/kidney toxicity pre-validation platform to sharply reduce pre-clinical drug risks. Experienced in aligning national digital healthcare policies, launch government cooperative pilot projects including CDSS clinical decision system, AI disease intelligent screening & regional smart medical digital platforms. Cooperate with national media & medical associations to build standardized science communication channels, deliver integrated solutions combining intelligent medical tools, clinical training & policy application documents, meeting consulting demands of hospitals, tech startups and local health authorities.",
-       eduTitle: "Education & Academic Appointments",
-       eduGroup1:"Academic Society Memberships & University Appointments",eduGroup2:"Full Degrees & Academic Certifications",
-       edu1:"Fellow of Royal Society of Medicine (FRSM)",edu2:"Senior Research Fellow, National AI Institute USA",edu3:"Member, APASL Asia Pacific Association for the Study of the Liver",edu4:"Certified High-Quality RCT Design, University of Nottingham",edu5:"Certified Participant, Nature Master Class in Frontier Medicine",
-       edu6:"Visiting Professor, University of Leicester School of Medicine",edu7:"Visiting Scholar, Kindai University Faculty of Medicine Japan",edu8:"Postdoctoral Researcher, University of Oxford (Organoid Quality Control)",
-       edu9:"Doctor of Medicine: Early Risk Intervention for Cardiovascular Diseases",edu10:"Doctor of Management: Innovative Training System for High-End Medical Talents",
-       edu11:"Master of Medicine: Mesenchymal Stem Cell Therapy for Hepatic Fibrosis",edu12:"Master of International Business (Medical Industry Track, Bilingual)",edu13:"Bachelor of Clinical Medicine (International Bilingual Program)",
-       awardTitle: "Global Professional Certifications & Industry Awards",
-       awGroup1:"International Authoritative Certifications",awGroup2:"Global Corporate Top Honors",
-       aw1:"NIDA ICH-GCP Global Full-Cycle Clinical Trial Certification",aw2:"Stanford University Certification in AI Clinical Medical Evaluation",aw3:"Yale University Certification in Medical Applied Psychology",aw4:"EMKT Global Medical Situational Leadership Certificate",aw5:"Official Academic Delegate, BMJ British Medical Journal Seminar",
-       aw6:"Sole Medical Representative, Global GE PDX-MARS Senior Leadership Program",
-       aw7:"GE President’s Highest Award, Regional GM Special Award, total 21 official global regional recognitions",
-       aw8:"MSD Global R&D Outstanding Contribution Award, Gold Award for Refined Clinical Management"
-   }
+
+    zh: {
+
+        title: "边璇 | 学术顾问",
+
+        navHome: "首页", navCareer: "职业履历", navExpertise: "核心板块", navEdu: "学术资质", navAward: "认证荣誉",
+
+        heroTitle: "边璇 | 学术顾问", heroSub: "原GE医疗生命科学 大中华区医学研发总监",
+
+        heroBio1: "曾任GE医疗全球Sonazoid医学负责人、全球临床研究审核专家委员会核心委员，深耕跨国临床研发、AI智慧医疗转化、国际学术资源运营十余年。",
+
+        heroBio2: "英国皇家医学会会士、美国国家人工智能科学院高级研究员；牛津大学博士后，医学、管理学双博士；兼任英国莱斯特大学客座教授、日本近畿大学访问学者，持有斯坦福AI医疗、国际GCP全套权威认证。现专职担任医学学术顾问，为医疗机构、医疗器械企业、创新药企提供全链条医学战略咨询。",
+
+        careerTitle: "完整职业履历",
+
+        job1Title:"大中华区医学研发总监",
+
+        job1li1:"牵头制定大中华区全域疾病赛道医学顶层战略，搭建肿瘤、肝病、心脑血管标准化临床研究体系，统筹全部III、IV期跨国多中心临床试验，牵头编制亚太肝癌规范化诊疗专家共识。",
+
+        job1li2:"搭建覆盖全国三甲医院的国际MDT多学科学术交流平台，联动全球6000+临床权威KOL，常态化举办跨国线上线下医学峰会。",
+
+        job1li3:"主导AI医学影像、超声造影、临床决策支持系统CDSS创新落地项目，完成多家省级医院智慧医疗试点临床验证与商业化落地。",
+
+        job1li4:"统筹医学合规、临床证据管理、市场医学科普全板块工作，搭建区域医学人才分层培养体系。",
+
+        job2Title:"全球医学战略负责人",
+
+        job2li1:"深度整合国内真实世界临床数据与全球研发管线，搭建中美欧日韩跨区域医学协作机制，统一全球设备临床循证标准。",
+
+        job2li2:"统筹全球前沿医工交叉创新项目，推动智能诊断设备、AI辅助筛查技术全球规模化临床落地。",
+
+        job2li3:"对接国家级权威媒体、医学学会，打造系统化权威医学科普矩阵，降低前沿医疗技术市场教育门槛。",
+
+        job2li4:"参与全球临床评审委员会，负责跨国临床试验方案审核、风险评估与医学策略校准。",
+
+        job3Title:"临床研发项目负责人",
+
+        job3li1:"全权统筹抗肿瘤创新药跨国III期临床研究，筛选并落地全国60余家核心三甲研究中心，全流程管控立项、伦理、入组、数据锁库、结题交付全周期。",
+
+        job3li2:"深耕实体肿瘤临床证据开发，完成卫生经济学HEOR、真实世界RWE研究设计，产出全套支撑新药上市、医保谈判、院内准入的医学证据材料。",
+
+        job3li3:"搭建区域临床研究者沟通体系，组织研究者培训、临床试验质量稽查，保障全球多中心试验数据合规完整。",
+
+        job4Title:"医学事务",
+
+        job4li1:"负责心脑血管、神经退行性疾病领域临床项目运营，协助完成II期探索性临床方案设计与中心启动。",
+
+        job4li2:"负责临床研究者关系维护，收集临床未满足诊疗需求，反向迭代新药临床开发方向。",
+
+        job4li3:"撰写医学综述、研究者手册、临床培训材料，支撑产品上市后学术推广与临床规范化使用。",
+
+        expTitle: "核心咨询板块",
+
+        exp1Title:"一、全球新药&器械全周期临床研发咨询",
+
+        exp1List:`拥有十余年全球创新药物、高端医疗器械完整临床管线操盘经验，覆盖卫生经济学HEOR、真实世界RWE研究、新药上市医学策略、医保准入证据搭建四大核心业务；
+
+累计主导20余项覆盖肿瘤、肝病、心脑血管、神经疾病赛道全球多中心临床试验，可独立设计研究者发起IIT/IST科研项目；
+
+与牛津、港大、东京大学等全球30+顶尖医学院校建立长期联合科研通道；
+
+输出标准化跨境临床研究合规方案、数据管理体系、风险质控流程，提供从临床立项到注册申报一站式医学顾问服务。`,
+
+        exp2Title:"二、AI医疗影像与医工交叉成果转化落地",
+
+        exp2List:`精通精准放射影像、超声造影、AI辅助诊断、数字化诊疗设备全链条商业化路径，熟悉算法临床验证、器械注册循证要求；
+
+累计孵化20余项临床前AI医疗创新项目，完整打通实验室技术到医院人体临床试验转化链路；
+
+搭建分层式跨学科临床人才培训体系，落地40余场全国性医学技术专项培训，形成可复制落地模式；
+
+为AI医疗初创、影像设备厂商提供临床验证方案、专家资源对接、试点医院落地全流程咨询。`,
+
+        exp3Title:"三、国际顶级学术资源整合与循证医学体系搭建",
+
+        exp3List:`自主搭建中、美、英、日、韩跨国MDT多学科学术协作网络，储备200余名海内外学科带头人KOL资源库；
+
+每年举办多场国际线上线下医学峰会，单场线上行业专家参会人数最高4万余人；
+
+依托权威专家背书提升新技术临床认可度，可将医疗产品全国医院落地周期缩短40%；
+
+搭建标准化循证医学数据库，支撑AI模型训练、诊疗指南编写、学术论文产出、产品学术包装。`,
+
+        exp4Title:"四、数字化智慧医疗与政策联动创新方案策划",
+
+        exp4List:`深耕医疗大数据、人工智能、类器官体外模型源头创新，搭建药物肝肾毒性早期体外检测验证平台，降低临床前研发风险；
+
+熟悉国内医疗数字化相关政策，落地CDSS、AI智能筛查、区域智慧医疗平台等政府合作试点；
+
+联动国家级媒体、医学学会搭建规范化学术科普传播渠道；
+
+输出「智能诊疗工具+临床标准化培训+政策申报材料」一体化落地方案，适配医院、科创企业、卫健单位需求。`,
+
+        eduTitle: "教育背景与学术资质",
+
+        eduGroup1:"国际学术学会 & 院校任职",eduGroup2:"完整学历体系与学术认证课程",
+
+        edu1:"英国皇家医学会正式会士 FRSM",edu2:"美国国家人工智能科学院高级研究员",edu3:"亚太肝病学会 APASL 注册会员",edu4:"诺丁汉大学高质量RCT临床试验设计认证",edu5:"Nature 官方前沿医学大师课认证学员",
+
+        edu6:"英国莱斯特大学医学院 客座教授",edu7:"日本近畿大学医学部 访问学者",edu8:"牛津大学博士后（类器官质控研发方向）",
+
+        edu9:"医学博士：心血管疾病早期风险干预方向",edu10:"管理学博士：高端医疗人才创新培养体系",edu11:"医学硕士：干细胞干预肝纤维化临床研究",edu12:"国际商务双语硕士（医疗产业方向）",edu13:"临床医学本科（国际双语培养项目）",
+
+        awardTitle: "全球专业认证 & 行业重磅荣誉",
+
+        awGroup1:"国际权威专业认证",awGroup2:"企业全球重量级表彰荣誉",
+
+        aw1:"NIDA ICH-GCP 国际全流程临床试验认证",aw2:"斯坦福大学 AI 医疗临床应用评估认证",aw3:"耶鲁大学医学应用心理学专项认证",aw4:"EMKT 全球医疗领导力模拟认证",aw5:"BMJ 英国医学期刊官方学术研讨学者",
+
+        aw6:"GE全球PDX-MARS高层领导力项目医疗板块唯一代表",aw7:"GE总裁最高奖、大区总经理专项奖，累计21项全球区域官方表彰",
+
+        aw8:"默沙东全球研发杰出贡献奖、临床精细化管理专项金奖",
+
+        copyright:"©2026 学术顾问 版权所有 | 专业医疗学术咨询官方展示网站",
+
+        copyrightDesc:"本网站所有内容仅用于专业商务展示，不构成诊疗建议；所有文字、案例、资质未经许可禁止转载复制"
+
+    },
+
+    en: {
+
+        title: "Xuan Bian | Medical Academic Consultant",
+
+        navHome: "Home", navCareer: "Career Profile", navExpertise: "Core Consulting Expertise", navEdu: "Academic Credentials", navAward: "Certifications & Honors",
+
+        heroTitle: "Xuan Bian | Medical Academic Consultant", heroSub: "Former Medical R&D Director Greater China, GE Healthcare Life Sciences",
+
+        heroBio1: "Ex-Global Sonazoid Medical Lead, Core Committee Member of GE Global Clinical Review Board. Over 10 years of cross-border clinical development, AI medical transformation and global academic resource operation experience.",
+
+        heroBio2: "Fellow of Royal Society of Medicine, Senior Research Fellow of National AI Institute USA; Postdoc at University of Oxford, Dual Doctorate in Medicine & Management. Visiting Professor at University of Leicester, Visiting Scholar at Kindai University Japan, certified in Stanford AI Medicine & ICH-GCP. Now working full-time as independent medical academic consultant, providing end-to-end medical strategy consulting for hospitals, medical device companies and innovative pharmaceutical enterprises.",
+
+        careerTitle: "Full Career Profile",
+
+        job1Title:"Greater China Medical R&D Director",
+
+        job1li1:"Formulate top-tier medical strategy covering all disease tracks in Greater China, build standardized clinical research framework for oncology, hepatology and cardiovascular diseases; lead all Phase III & IV multi-country multi-center trials, co-author APAC standardized HCC clinical expert consensus.",
+
+        job1li2:"Launch international MDT academic network covering top tertiary hospitals nationwide, cooperate with over 6,000 global leading clinical KOLs, host regular cross-border medical summits offline & online.",
+
+        job1li3:"Lead innovative projects of AI radiology, ultrasound contrast and CDSS clinical decision system, complete clinical verification and commercial launch of smart medical pilots in multiple provincial hospitals.",
+
+        job1li4:"Oversee medical compliance, clinical evidence management and medical science communication; establish tiered regional medical talent training system.",
+
+        job2Title:"Global Medical Strategy Lead",
+
+        job2li1:"Integrate real-world domestic clinical data into global R&D pipeline, build cross-regional collaboration network across China, US, Europe, Japan & Korea, unify global clinical evidence standards for medical equipment.",
+
+        job2li2:"Manage global interdisciplinary med-tech innovation projects, accelerate worldwide clinical rollout of AI diagnostic tools & intelligent screening devices.",
+
+        job2li3:"Cooperate with national mainstream media & medical associations to build systematic authoritative medical science communication system, reduce market education cost for cutting-edge medical technology.",
+
+        job2li4:"Serve on global clinical review board, responsible for cross-border trial protocol audit, risk assessment and medical strategy calibration.",
+
+        job3Title:"Clinical R&D Project Lead",
+
+        job3li1:"Fully manage Phase III cross-border clinical trials for anti-tumor drugs, launch collaboration with over 60 core tertiary research centers nationwide; full-cycle management including project initiation, ethics approval, patient enrollment, data lock and final report submission.",
+
+        job3li2:"Develop clinical evidence for solid tumors, design HEOR & RWE real-world research, deliver complete evidence packages supporting drug launch, medical insurance negotiation and hospital access.",
+
+        job3li3:"Build communication system for clinical investigators, organize training & trial quality audits to ensure fully compliant & complete multi-center clinical data.",
+
+        job4Title:"Medical Affairs Supervisor",
+
+        job4li1:"Operate clinical projects for cardiovascular & neurodegenerative diseases, assist Phase II exploratory trial protocol design and research center activation.",
+
+        job4li2:"Maintain investigator relationships, collect unmet clinical medical demands to iterate new drug development directions.",
+
+        job4li3:"Author medical reviews, investigator brochures & clinical training materials to support post-launch academic promotion and standardized clinical application.",
+
+        expTitle: "Four Core Professional Consulting Sections",
+
+        exp1Title:"1. End-to-End Global Clinical R&D Consulting for Pharmaceuticals & Devices",
+
+        exp1List:`More than 10 years full pipeline operation experience for innovative drugs & high-end medical devices, covering HEOR health economics, RWE real-world evidence, pre-launch medical strategy and medical insurance evidence construction;
+
+Led over 20 global multi-center trials across oncology, liver, cardiovascular and neurology fields, capable of independently designing IIT investigator-initiated research projects;
+
+Establish long-term joint research partnerships with more than 30 top medical schools including Oxford and HKU;
+
+Deliver standardized cross-border clinical compliance framework, data management and risk control process, provide one-stop medical consulting service from clinical initiation to registration submission.`,
+
+        exp2Title:"2. AI Medical Imaging & Med-Tech Commercialization Consulting",
+
+        exp2List:`Expert in full commercialization chain of precision radiology, ultrasound contrast and AI-aided diagnosis, familiar with algorithm clinical verification and medical device registration evidence requirements;
+
+Incubated more than 20 pre-clinical AI medical innovations, fully bridging lab technology to hospital human trial transformation;
+
+Build interdisciplinary tiered clinical training system, deliver over 40 nationwide technical workshops and create replicable med-engineering innovation model;
+
+Provide full-process consulting for AI medical startups & imaging equipment manufacturers covering trial design, KOL matching & hospital pilot landing.`,
+
+        exp3Title:"3. Global Academic Resource Integration & Evidence-Based Medicine System Construction",
+
+        exp3List:`Self-established cross-border MDT academic network covering China, US, UK, Japan & Korea, database with more than 200 chief physicians & discipline leaders;
+
+Host multiple international medical summits annually, single online summit reaching up to 40,000 industry practitioners;
+
+Accelerate clinical recognition of new technologies via top KOL endorsement, shorten nationwide hospital launch cycle of medical innovations by 40%;
+
+Specialize in building standardized evidence-based medical database to support AI model training, clinical guideline compilation, academic paper writing & product academic branding.`,
+
+        exp4Title:"4. Digital Smart Healthcare & Policy-Oriented Innovation Solution Design",
+
+        exp4List:`Focus on original medical innovation powered by big data, AI & organoid in-vitro models; develop early liver/kidney toxicity pre-validation platform to sharply reduce pre-clinical drug risks;
+
+Experienced in aligning national digital healthcare policies, launch government cooperative pilot projects including CDSS clinical decision system, AI disease intelligent screening & regional smart medical digital platforms;
+
+Cooperate with national media & medical associations to build standardized science communication channels;
+
+Deliver integrated solutions combining intelligent medical tools, clinical training & policy application documents, meeting consulting demands of hospitals, tech startups and local health authorities.`,
+
+        eduTitle: "Education & Academic Appointments",
+
+        eduGroup1:"Academic Society Memberships & University Appointments",eduGroup2:"Full Degrees & Academic Certifications",
+
+        edu1:"Fellow of Royal Society of Medicine (FRSM)",edu2:"Senior Research Fellow, National AI Institute USA",edu3:"Member, APASL Asia Pacific Association for the Study of the Liver",edu4:"Certified High-Quality RCT Design, University of Nottingham",edu5:"Certified Participant, Nature Master Class in Frontier Medicine",
+
+        edu6:"Visiting Professor, University of Leicester School of Medicine",edu7:"Visiting Scholar, Kindai University Faculty of Medicine Japan",
+
+        edu8:"Postdoctoral Researcher, University of Oxford (Organoid Quality Control)",
+
+        edu9:"Doctor of Medicine: Early Risk Intervention for Cardiovascular Diseases",edu10:"Doctor of Management: Innovative Training System for High-End Medical Talents",
+
+        edu11:"Master of Medicine: Mesenchymal Stem Cell Therapy for Hepatic Fibrosis",edu12:"Master of International Business (Medical Industry Track, Bilingual)",edu13:"Bachelor of Clinical Medicine (International Bilingual Program)",
+
+        awardTitle: "Global Professional Certifications & Industry Awards",
+
+        awGroup1:"International Authoritative Certifications",awGroup2:"Global Corporate Top Honors",
+
+        aw1:"NIDA ICH-GCP Global Full-Cycle Clinical Trial Certification",aw2:"Stanford University Certification in AI Clinical Medical Evaluation",aw3:"Yale University Certification in Medical Applied Psychology",aw4:"EMKT Global Medical Situational Leadership Certificate",aw5:"Official Academic Delegate, BMJ British Medical Journal Seminar",
+
+        aw6:"Sole Medical Representative, Global GE PDX-MARS Senior Leadership Program",
+
+        aw7:"GE President’s Highest Award, Regional GM Special Award, total 21 official global regional recognitions",
+
+        aw8:"MSD Global R&D Outstanding Contribution Award, Gold Award for Refined Clinical Management",
+
+        copyright:"©2026 Medical Academic Consultant All Rights Reserved | Official Professional Medical Academic Consulting Website",
+
+        copyrightDesc:"All website content is for professional business display only and does not constitute medical diagnosis advice. Reproduction of all texts, cases and qualifications without permission is prohibited."
+
+    }
+
 };
+
 let currentLang = localStorage.getItem("siteLang") || "zh";
+
 const langBtn = document.getElementById("langToggle");
+
 function renderLang(lang) {
-   const dict = i18n[lang];
-   document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
-   document.querySelectorAll("[data-i18n]").forEach(el => {
-       const key = el.getAttribute("data-i18n");
-       el.textContent = dict[key];
-   });
-   langBtn.textContent = lang === "zh" ? "EN" : "CN";
-   localStorage.setItem("siteLang", lang);
-   currentLang = lang;
+
+    const dict = i18n[lang];
+
+    document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
+
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+
+        const key = el.getAttribute("data-i18n");
+
+        if(key.includes("List")) {
+
+            const textArr = dict[key].split("\n");
+
+            el.innerHTML = textArr.map(item=>`<li>${item}</li>`).join("");
+
+        }else{
+
+            el.textContent = dict[key];
+
+        }
+
+    });
+
+    langBtn.textContent = lang === "zh" ? "EN" : "CN";
+
+    localStorage.setItem("siteLang", lang);
+
+    currentLang = lang;
+
 }
+
 langBtn.addEventListener("click", ()=>renderLang(currentLang==="zh"?"en":"zh"));
+
 renderLang(currentLang);
 </script>
 </body>
 </html>
+ 
